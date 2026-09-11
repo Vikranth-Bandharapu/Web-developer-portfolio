@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard 2 — SysAdmin & Kubernetes Operations Console | Stackly</title>
+  <meta name="description" content="Stackly Administrative Operations Console for monitoring Kubernetes clusters, multi-region telemetry, database sharding, and security audits.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- FontAwesome 6 Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- Core CSS Systems -->
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="animations.css">
+  <link rel="stylesheet" href="dashboard.css">
+
+  <style>
+    /* Custom Theme Overrides for Dashboard 2 (SysAdmin Ops Console) */
+    .dash-sidebar {
+      background: #090d16 !important;
+      z-index: 2000;
+      border-right: 1px solid rgba(129, 140, 248, 0.15);
+    }
+    .dash-nav-link:hover, .dash-nav-link.active {
+      background: rgba(99, 102, 241, 0.18);
+      color: #ffffff;
+      border: 1px solid rgba(129, 140, 248, 0.35);
+    }
+    .admin-hero-card {
+      background: linear-gradient(135deg, rgba(79, 70, 229, 0.25), rgba(139, 92, 246, 0.15), rgba(15, 23, 42, 0.8));
+      border: 1px solid rgba(129, 140, 248, 0.3);
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="dashboard-wrapper">
+    <!-- 1. SIDEBAR NAVIGATION FOR DASHBOARD 2 (ADMIN CONSOLE) -->
+    <aside class="dash-sidebar">
+      <div>
+        <div class="dash-sidebar-brand" style="display: flex; align-items: center; justify-content: space-between;">
+          <div>
+            <a href="dashboard-admin.html" class="logo-brand">
+              <img src="assets/logo.webp" alt="Stackly Logo" class="logo-image">
+            </a>
+            <div style="font-size: 0.7rem; font-weight: 700; color: #818cf8; margin-top: 6px; letter-spacing: 0.05em;">SYSADMIN CONSOLE</div>
+          </div>
+          <button class="dash-sidebar-close" aria-label="Close Sidebar"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+
+        <ul class="dash-nav">
+          <li>
+            <a class="dash-nav-link active" data-tab="cluster">
+              <i class="fa-solid fa-server"></i>
+              <span>Cluster Telemetry</span>
+            </a>
+          </li>
+          <li>
+            <a class="dash-nav-link" data-tab="database">
+              <i class="fa-solid fa-database"></i>
+              <span>Database Vault</span>
+            </a>
+          </li>
+          <li>
+            <a class="dash-nav-link" data-tab="security">
+              <i class="fa-solid fa-shield-halved"></i>
+              <span>SOC-2 & Security</span>
+            </a>
+          </li>
+          <li>
+            <a class="dash-nav-link" data-tab="config">
+              <i class="fa-solid fa-sliders"></i>
+              <span>System Config</span>
+            </a>
+          </li>
+          <li style="margin-top: 12px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.08);">
+            <a href="dashboard.html" class="dash-nav-link" style="color: #818cf8; background: rgba(99, 102, 241, 0.1); border: 1px solid rgba(99, 102, 241, 0.25);">
+              <i class="fa-solid fa-chart-pie"></i>
+              <span>Switch to Dash 1 (Client Portal)</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Sidebar Footer Admin Profile -->
+      <div style="border-top: 1px solid rgba(255,255,255,0.08); padding-top: 16px;">
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <div class="dash-user-avatar" style="background: linear-gradient(135deg, #4f46e5, #8b5cf6);">AV</div>
+            <div>
+              <div style="font-weight: 700; font-size: 0.85rem; color: #fff;">ALEXEI VOLKOV</div>
+              <div style="font-size: 0.72rem; color: #818cf8; font-weight: 700;">SYSADMIN / DEVOPS</div>
+            </div>
+          </div>
+        </div>
+        <button id="dash-logout-btn" class="btn btn-secondary" style="width: 100%; font-size: 0.8rem; padding: 8px;" onclick="localStorage.removeItem('stackly_user_session'); window.location.href='index.html';"><i class="fa-solid fa-right-from-bracket"></i> Sign Out</button>
+      </div>
+    </aside>
+
+    <!-- 2. MAIN DASHBOARD CONTENT -->
+    <main class="dash-main">
+      <!-- Topbar Header -->
+      <header class="dash-topbar">
+        <button class="dash-sidebar-toggle btn btn-secondary" aria-label="Toggle Sidebar">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+
+        <a href="index.html" class="logo-brand dash-topbar-logo" title="Back to Homepage">
+          <img src="assets/logo.webp" alt="Stackly Logo" class="logo-image">
+        </a>
+
+        <div style="width: 40px;"></div>
+      </header>
+
+      <!-- Content Area -->
+      <div class="dash-content">
+
+        <!-- ADMIN HERO BANNER -->
+        <div class="admin-hero-card" data-aos="zoom-in-down" data-aos-duration="700">
+          <div style="display: flex; align-items: center; gap: 16px;">
+            <div style="width: 48px; height: 48px; background: rgba(99, 102, 241, 0.25); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; color: #818cf8;">
+              <i class="fa-solid fa-server"></i>
+            </div>
+            <div>
+              <h1 style="font-size: 1.4rem; font-weight: 800; color: #fff; margin-bottom: 2px;">DASHBOARD 2 — SYSADMIN & KUBERNETES OPERATIONS CONSOLE</h1>
+              <p style="font-size: 0.85rem; color: #a5b4fc;">Live Infrastructure Monitoring • 48 Active Pods • Multi-Region Postgres Sharding</p>
+            </div>
+          </div>
+          <button class="btn btn-cyan shimmer-btn" onclick="window.location.href='404.html'"><i class="fa-solid fa-rotate"></i> Refresh System Telemetry</button>
+        </div>
+
+        <!-- TAB 1: CLUSTER TELEMETRY -->
+        <div id="tab-cluster" class="dash-tab-pane active">
+          <!-- Metric Cards -->
+          <div class="dash-metrics-grid">
+            <div class="dash-metric-card" data-aos="flip-up" data-aos-delay="100">
+              <div class="metric-header"><span>Kubernetes Pods</span><i class="fa-solid fa-cubes" style="color: #38bdf8;"></i></div>
+              <div class="metric-value">48 Active</div>
+              <div class="metric-trend trend-up"><i class="fa-solid fa-check"></i> 100% Pod Health</div>
+            </div>
+            <div class="dash-metric-card" data-aos="flip-up" data-aos-delay="200">
+              <div class="metric-header"><span>CPU Load Avg</span><i class="fa-solid fa-microchip" style="color: #818cf8;"></i></div>
+              <div class="metric-value">24% Load</div>
+              <div class="metric-trend trend-up"><i class="fa-solid fa-arrow-trend-down"></i> -4% variance</div>
+            </div>
+            <div class="dash-metric-card" data-aos="flip-up" data-aos-delay="300">
+              <div class="metric-header"><span>RAM Memory Allocation</span><i class="fa-solid fa-memory" style="color: #34d399;"></i></div>
+              <div class="metric-value">12.4 / 32 GB</div>
+              <div class="metric-trend trend-up"><i class="fa-solid fa-shield"></i> Optimal Buffer</div>
+            </div>
+            <div class="dash-metric-card" data-aos="flip-up" data-aos-delay="400">
+              <div class="metric-header"><span>PgBouncer Pool</span><i class="fa-solid fa-database" style="color: #c084fc;"></i></div>
+              <div class="metric-value">1,420 Active</div>
+              <div class="metric-trend trend-up"><i class="fa-solid fa-bolt"></i> 2.4ms Query Latency</div>
+            </div>
+          </div>
+
+          <!-- Multi-Region Server Node Cards -->
+          <div style="margin-bottom: 32px;">
+            <h3 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 16px; color: #fff;" data-aos="fade-right"><i class="fa-solid fa-network-wired" style="color: #818cf8; margin-right: 8px;"></i> Multi-Region Kubernetes Server Nodes</h3>
+            <div class="dash-metrics-grid">
+              <div class="node-card" data-aos="zoom-in" data-aos-delay="100">
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
+                  <span style="font-weight: 700; font-size: 1rem; color: #fff;">US-East-1 (Primary)</span>
+                  <span class="status-badge status-completed">ONLINE (99.99%)</span>
+                </div>
+                <div style="font-size: 0.85rem; color: #9ca3af; margin-bottom: 8px;">16 Active Pods | CPU Load: <strong style="color: #fff;">32%</strong></div>
+                <div class="progress-bar-bg"><div class="progress-bar-fill bg-cyan" style="width: 32%;"></div></div>
+              </div>
+
+              <div class="node-card" data-aos="zoom-in" data-aos-delay="200">
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
+                  <span style="font-weight: 700; font-size: 1rem; color: #fff;">EU-Central-1 (Secondary)</span>
+                  <span class="status-badge status-completed">ONLINE (99.98%)</span>
+                </div>
+                <div style="font-size: 0.85rem; color: #9ca3af; margin-bottom: 8px;">12 Active Pods | CPU Load: <strong style="color: #fff;">22%</strong></div>
+                <div class="progress-bar-bg"><div class="progress-bar-fill bg-indigo" style="width: 22%;"></div></div>
+              </div>
+
+              <div class="node-card" data-aos="zoom-in" data-aos-delay="300">
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
+                  <span style="font-weight: 700; font-size: 1rem; color: #fff;">AP-East-1 (Edge PoPs)</span>
+                  <span class="status-badge status-completed">ONLINE (100%)</span>
+                </div>
+                <div style="font-size: 0.85rem; color: #9ca3af; margin-bottom: 8px;">10 Active Pods | CPU Load: <strong style="color: #fff;">18%</strong></div>
+                <div class="progress-bar-bg"><div class="progress-bar-fill bg-emerald" style="width: 18%;"></div></div>
+              </div>
+
+              <div class="node-card" data-aos="zoom-in" data-aos-delay="400">
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
+                  <span style="font-weight: 700; font-size: 1rem; color: #fff;">Postgres Master Vault</span>
+                  <span class="status-badge status-completed">SYNC ACTIVE</span>
+                </div>
+                <div style="font-size: 0.85rem; color: #9ca3af; margin-bottom: 8px;">10 Active Pods | Replication: <strong style="color: #fff;">0ms Lag</strong></div>
+                <div class="progress-bar-bg"><div class="progress-bar-fill bg-violet" style="width: 45%;"></div></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Microservices & Terminal Logs Console -->
+          <div class="dash-bento-grid">
+            <div class="chart-panel">
+              <div class="panel-title">
+                <span>Micro-Services Operational Status</span>
+                <span class="badge-tag badge-indigo">5 Microservices</span>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 12px;">
+                <div class="micro-service-item">
+                  <span style="font-weight: 600; color: #fff;"><i class="fa-solid fa-key" style="color: #38bdf8; margin-right: 8px;"></i> Auth0 Security Gateway v4.2</span>
+                  <span class="status-badge status-completed">12ms Active</span>
+                </div>
+                <div class="micro-service-item">
+                  <span style="font-weight: 600; color: #fff;"><i class="fa-solid fa-diagram-project" style="color: #818cf8; margin-right: 8px;"></i> GraphQL API Router</span>
+                  <span class="status-badge status-completed">18ms Active</span>
+                </div>
+                <div class="micro-service-item">
+                  <span style="font-weight: 600; color: #fff;"><i class="fa-solid fa-credit-card" style="color: #34d399; margin-right: 8px;"></i> Stripe Payment Engine</span>
+                  <span class="status-badge status-completed">24ms Active</span>
+                </div>
+                <div class="micro-service-item">
+                  <span style="font-weight: 600; color: #fff;"><i class="fa-solid fa-brain" style="color: #c084fc; margin-right: 8px;"></i> CyberMind Vector Embedding Search</span>
+                  <span class="status-badge status-completed">35ms Active</span>
+                </div>
+                <div class="micro-service-item">
+                  <span style="font-weight: 600; color: #fff;"><i class="fa-solid fa-bolt" style="color: #fbbf24; margin-right: 8px;"></i> WebSocket Real-Time Broadcast Mesh</span>
+                  <span class="status-badge status-completed">8ms Active</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Terminal Log Console Stream -->
+            <div class="chart-panel">
+              <div class="panel-title">
+                <span><i class="fa-solid fa-terminal" style="color: #34d399; margin-right: 8px;"></i> Live Cluster Telemetry Logs</span>
+                <span class="badge-tag badge-emerald">Streaming</span>
+              </div>
+              <div class="terminal-console">
+                <div class="terminal-line"><span class="terminal-time">[15:30:01]</span> <span class="terminal-tag">[K8S-INGRESS]</span> <span class="terminal-success">Pod mesh synchronized across 3 regions.</span></div>
+                <div class="terminal-line"><span class="terminal-time">[15:30:04]</span> <span class="terminal-tag">[DB-VAULT]</span> <span class="terminal-info">PgBouncer pool: 1,420 / 2,000 active connections.</span></div>
+                <div class="terminal-line"><span class="terminal-time">[15:30:08]</span> <span class="terminal-tag">[GRAPHQL]</span> <span class="terminal-success">Query depth check passed (depth=4, limit=8).</span></div>
+                <div class="terminal-line"><span class="terminal-time">[15:30:10]</span> <span class="terminal-tag">[SOC2-AUDIT]</span> <span class="terminal-success">AES-256 vault encryption key rotated automatically.</span></div>
+                <div class="terminal-line"><span class="terminal-time">[15:30:14]</span> <span class="terminal-tag">[BUILD-PIPE]</span> <span class="terminal-info">CI/CD Pipeline #4092 completed 142 integration tests.</span></div>
+                <div class="terminal-line"><span class="terminal-time">[15:30:18]</span> <span class="terminal-tag">[CDN-EDGE]</span> <span class="terminal-success">Edge cache hit ratio: 98.4% (latency 4ms).</span></div>
+                <div class="terminal-line"><span class="terminal-time">[15:30:22]</span> <span class="terminal-tag">[HPA-AUTOSCALE]</span> <span class="terminal-info">Pod capacity headroom stable at 65%.</span></div>
+                <div class="terminal-line"><span class="terminal-time">[15:30:25]</span> <span class="terminal-tag">[SECURITY]</span> <span class="terminal-success">Zero-trust handshake verified for worker-node-04.</span></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Extended Kubernetes Pods Health Table -->
+          <div class="dash-table-wrapper" style="margin-bottom: 32px;">
+            <div class="dash-table-header">
+              <span style="font-weight: 700; font-size: 1.1rem;"><i class="fa-solid fa-cubes" style="color: #38bdf8; margin-right: 8px;"></i> Kubernetes Active Pod Mesh Deployment</span>
+              <a href="404.html" class="btn btn-secondary btn-sm"><i class="fa-solid fa-arrows-rotate"></i> Sync Pods</a>
+            </div>
+            <div class="dash-table-container">
+              <table class="dash-table">
+                <thead>
+                  <tr>
+                    <th>Pod Identifier</th>
+                    <th>Namespace</th>
+                    <th>Node Placement</th>
+                    <th>Restarts</th>
+                    <th>Resource Load (CPU / RAM)</th>
+                    <th>Health Status</th>
+                    <th>Diagnostics</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><code>auth-service-v4-9f8d</code></td>
+                    <td><span class="badge-tag badge-indigo">production-auth</span></td>
+                    <td>us-east-1a</td>
+                    <td>0</td>
+                    <td>12% / 256 MB</td>
+                    <td><span class="status-badge status-completed">RUNNING</span></td>
+                    <td><a href="404.html" class="btn btn-secondary btn-sm"><i class="fa-solid fa-file-code"></i> Logs</a></td>
+                  </tr>
+                  <tr>
+                    <td><code>graphql-gateway-8b7a</code></td>
+                    <td><span class="badge-tag badge-cyan">production-api</span></td>
+                    <td>us-east-1b</td>
+                    <td>0</td>
+                    <td>28% / 512 MB</td>
+                    <td><span class="status-badge status-completed">RUNNING</span></td>
+                    <td><a href="404.html" class="btn btn-secondary btn-sm"><i class="fa-solid fa-file-code"></i> Logs</a></td>
+                  </tr>
+                  <tr>
+                    <td><code>payment-stripe-3c2e</code></td>
+                    <td><span class="badge-tag badge-emerald">production-billing</span></td>
+                    <td>eu-central-1</td>
+                    <td>0</td>
+                    <td>14% / 384 MB</td>
+                    <td><span class="status-badge status-completed">RUNNING</span></td>
+                    <td><a href="404.html" class="btn btn-secondary btn-sm"><i class="fa-solid fa-file-code"></i> Logs</a></td>
+                  </tr>
+                  <tr>
+                    <td><code>vector-search-ai-7x4m</code></td>
+                    <td><span class="badge-tag badge-violet">production-ai</span></td>
+                    <td>ap-east-1</td>
+                    <td>1</td>
+                    <td>42% / 1024 MB</td>
+                    <td><span class="status-badge status-completed">OPTIMAL</span></td>
+                    <td><a href="404.html" class="btn btn-secondary btn-sm"><i class="fa-solid fa-file-code"></i> Logs</a></td>
+                  </tr>
+                  <tr>
+                    <td><code>redis-cluster-master-0</code></td>
+                    <td><span class="badge-tag badge-amber">production-cache</span></td>
+                    <td>us-east-1a</td>
+                    <td>0</td>
+                    <td>8% / 2048 MB</td>
+                    <td><span class="status-badge status-completed">HEALTHY</span></td>
+                    <td><a href="404.html" class="btn btn-secondary btn-sm"><i class="fa-solid fa-file-code"></i> Logs</a></td>
+                  </tr>
+                  <tr>
+                    <td><code>pgbouncer-pool-v2-5k9l</code></td>
+                    <td><span class="badge-tag badge-indigo">production-db</span></td>
+                    <td>us-east-1c</td>
+                    <td>0</td>
+                    <td>19% / 512 MB</td>
+                    <td><span class="status-badge status-completed">HEALTHY</span></td>
+                    <td><a href="404.html" class="btn btn-secondary btn-sm"><i class="fa-solid fa-file-code"></i> Logs</a></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Horizontal Pod Autoscaling & Quota Policy -->
+          <div class="settings-grid" style="margin-bottom: 32px;">
+            <div class="settings-card">
+              <div class="settings-card-title"><i class="fa-solid fa-sliders" style="color: #38bdf8;"></i> Horizontal Pod Autoscaler (HPA) Policy</div>
+              <div style="display: flex; flex-direction: column; gap: 14px;">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <div>
+                    <strong style="color: #fff;">CPU Autoscaling Trigger Threshold</strong>
+                    <div style="font-size: 0.8rem; color: #9ca3af;">Target: 70% CPU Utilization</div>
+                  </div>
+                  <span class="badge-tag badge-cyan">ACTIVE (70%)</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <div>
+                    <strong style="color: #fff;">Memory Scaling Threshold</strong>
+                    <div style="font-size: 0.8rem; color: #9ca3af;">Target: 80% RAM Allocation</div>
+                  </div>
+                  <span class="badge-tag badge-indigo">ACTIVE (80%)</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <div>
+                    <strong style="color: #fff;">Replicas Boundary Policy</strong>
+                    <div style="font-size: 0.8rem; color: #9ca3af;">Min: 12 Pods | Max: 120 Pods</div>
+                  </div>
+                  <span class="badge-tag badge-emerald">48 RUNNING</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="settings-card">
+              <div class="settings-card-title"><i class="fa-solid fa-network-wired" style="color: #34d399;"></i> Ingress Mesh & Load Balancer SLA</div>
+              <div style="display: flex; flex-direction: column; gap: 14px;">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <div>
+                    <strong style="color: #fff;">HTTP/3 QUIC Edge Protocol</strong>
+                    <div style="font-size: 0.8rem; color: #9ca3af;">Zero round-trip handshake enabled</div>
+                  </div>
+                  <span class="status-badge status-completed">ENFORCED</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <div>
+                    <strong style="color: #fff;">TLS 1.3 Strict Key Exchange</strong>
+                    <div style="font-size: 0.8rem; color: #9ca3af;">ECDHE-RSA-AES256-GCM-SHA384</div>
+                  </div>
+                  <span class="status-badge status-completed">SECURE</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <div>
+                    <strong style="color: #fff;">DDoS Rate Limiter Mitigation</strong>
+                    <div style="font-size: 0.8rem; color: #9ca3af;">10,000 req/min per IP subnet</div>
+                  </div>
+                  <span class="status-badge status-completed">PROTECTED</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB 2: DATABASE VAULT -->
+        <div id="tab-database" class="dash-tab-pane">
+          <h2 style="font-size: 1.5rem; margin-bottom: 20px;">Database Vault & Slow Queries Telemetry</h2>
+          <div class="dash-table-wrapper" style="margin-bottom: 32px;">
+            <div class="dash-table-header">
+              <span style="font-weight: 700; font-size: 1.1rem;"><i class="fa-solid fa-database" style="color: #c084fc; margin-right: 8px;"></i> PostgreSQL Sharding Performance & Index Optimization</span>
+              <span class="badge-tag badge-violet">99.4% Index Hit</span>
+            </div>
+            <div class="dash-table-container">
+              <table class="dash-table">
+                <thead>
+                  <tr>
+                    <th>Query Pattern</th>
+                    <th>Frequency</th>
+                    <th>Index Hit Ratio</th>
+                    <th>Avg Execution</th>
+                    <th>Optimization</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><code>SELECT * FROM users WHERE tenant_id = $1</code></td>
+                    <td>142,000 req/min</td>
+                    <td><span style="color: #34d399; font-weight: 700;">99.8%</span></td>
+                    <td>3.2ms</td>
+                    <td><span class="badge-tag badge-emerald">B-Tree Indexed</span></td>
+                  </tr>
+                  <tr>
+                    <td><code>SELECT embeddings FROM vector_store WHERE id = $1</code></td>
+                    <td>85,400 req/min</td>
+                    <td><span style="color: #34d399; font-weight: 700;">99.1%</span></td>
+                    <td>8.1ms</td>
+                    <td><span class="badge-tag badge-cyan">HNSW Vector Index</span></td>
+                  </tr>
+                  <tr>
+                    <td><code>UPDATE sessions SET last_active = NOW() WHERE token = $1</code></td>
+                    <td>64,200 req/min</td>
+                    <td><span style="color: #34d399; font-weight: 700;">100.0%</span></td>
+                    <td>2.4ms</td>
+                    <td><span class="badge-tag badge-indigo">Redis Cache RAM</span></td>
+                  </tr>
+                  <tr>
+                    <td><code>SELECT sum(amount) FROM transactions WHERE month = $1</code></td>
+                    <td>12,500 req/min</td>
+                    <td><span style="color: #fbbf24; font-weight: 700;">98.4%</span></td>
+                    <td>6.8ms</td>
+                    <td><span class="badge-tag badge-amber">Materialized View</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Active Replicas Topology Cards -->
+          <div style="margin-bottom: 32px;">
+            <h3 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 16px; color: #fff;"><i class="fa-solid fa-server" style="color: #c084fc; margin-right: 8px;"></i> Multi-Region Active Database Replicas & Replication Streams</h3>
+            <div class="dash-metrics-grid">
+              <div class="node-card">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                  <strong style="color: #fff;">pg-master-us-east-1</strong>
+                  <span class="status-badge status-completed">PRIMARY (RW)</span>
+                </div>
+                <div style="font-size: 0.82rem; color: #9ca3af; margin-bottom: 6px;">PgBouncer Connections: <strong style="color: #fff;">840 / 1000</strong></div>
+                <div style="font-size: 0.78rem; color: #818cf8;">AES-256 Volume Encrypted • WAL Archiving Active</div>
+              </div>
+
+              <div class="node-card">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                  <strong style="color: #fff;">pg-replica-eu-central-1</strong>
+                  <span class="status-badge status-completed">SYNC STANDBY</span>
+                </div>
+                <div style="font-size: 0.82rem; color: #9ca3af; margin-bottom: 6px;">Replication Lag: <strong style="color: #34d399;">0.4ms</strong></div>
+                <div style="font-size: 0.78rem; color: #38bdf8;">Streaming Replication • TLS 1.3 Strict</div>
+              </div>
+
+              <div class="node-card">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                  <strong style="color: #fff;">pg-replica-ap-east-1</strong>
+                  <span class="status-badge status-completed">ASYNC READ ONLY</span>
+                </div>
+                <div style="font-size: 0.82rem; color: #9ca3af; margin-bottom: 6px;">Replication Lag: <strong style="color: #34d399;">1.2ms</strong></div>
+                <div style="font-size: 0.78rem; color: #34d399;">Read Heavy Offloading • Edge Sync</div>
+              </div>
+
+              <div class="node-card">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                  <strong style="color: #fff;">redis-vault-cluster</strong>
+                  <span class="status-badge status-completed">RAM CACHE VAULT</span>
+                </div>
+                <div style="font-size: 0.82rem; color: #9ca3af; margin-bottom: 6px;">Hit Ratio: <strong style="color: #c084fc;">99.4%</strong></div>
+                <div style="font-size: 0.78rem; color: #c084fc;">4.2 GB Memory Allocation • Session Store</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Automated Snapshots & Backup Logs Table -->
+          <div class="dash-table-wrapper" style="margin-bottom: 32px;">
+            <div class="dash-table-header">
+              <span style="font-weight: 700; font-size: 1.1rem;"><i class="fa-solid fa-box-archive" style="color: #fbbf24; margin-right: 8px;"></i> Point-in-Time Database Snapshots & Cold Storage Vault</span>
+              <a href="404.html" class="btn btn-secondary btn-sm"><i class="fa-solid fa-plus"></i> Trigger Snapshot</a>
+            </div>
+            <div class="dash-table-container">
+              <table class="dash-table">
+                <thead>
+                  <tr>
+                    <th>Snapshot ID</th>
+                    <th>Region Vault</th>
+                    <th>Encryption Hash (SHA-256)</th>
+                    <th>Storage Size</th>
+                    <th>Frequency</th>
+                    <th>Retention</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><code>snap-pg-2026-09-09-001</code></td>
+                    <td>AWS S3 US-East (Vault)</td>
+                    <td><code>e3b0c44298fc1c149afbf4c...</code></td>
+                    <td>14.8 GB</td>
+                    <td>Hourly WAL</td>
+                    <td>30 Days</td>
+                    <td><a href="404.html" class="btn btn-secondary btn-sm"><i class="fa-solid fa-download"></i> Restore</a></td>
+                  </tr>
+                  <tr>
+                    <td><code>snap-pg-2026-09-08-024</code></td>
+                    <td>AWS S3 EU-Central (Vault)</td>
+                    <td><code>8f434346648f6b96df89dda...</code></td>
+                    <td>14.6 GB</td>
+                    <td>Daily Full</td>
+                    <td>90 Days</td>
+                    <td><a href="404.html" class="btn btn-secondary btn-sm"><i class="fa-solid fa-download"></i> Restore</a></td>
+                  </tr>
+                  <tr>
+                    <td><code>snap-pg-2026-09-01-001</code></td>
+                    <td>Glacier Deep Archive</td>
+                    <td><code>4b227777d4da16a1e6313d9...</code></td>
+                    <td>14.1 GB</td>
+                    <td>Monthly Compliance</td>
+                    <td>7 Years (SOC2)</td>
+                    <td><a href="404.html" class="btn btn-secondary btn-sm"><i class="fa-solid fa-box-archive"></i> Archive</a></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB 3: SECURITY & SOC-2 -->
+        <div id="tab-security" class="dash-tab-pane">
+          <h2 style="font-size: 1.5rem; margin-bottom: 20px;">SOC-2 Type II Compliance & Audit Logs</h2>
+          
+          <!-- Compliance Certifications Grid -->
+          <div class="settings-grid" style="margin-bottom: 32px;">
+            <div class="settings-card">
+              <div class="settings-card-title"><i class="fa-solid fa-shield-halved" style="color: #818cf8;"></i> Security Certifications</div>
+              <div class="toggle-switch-row">
+                <div>
+                  <div style="font-weight: 600; color: #fff;">SOC-2 Type II Annual Certificate</div>
+                  <div style="font-size: 0.8rem; color: #9ca3af;">Valid through Q4 2027 (Ernst & Tech Compliance)</div>
+                </div>
+                <span class="status-badge status-completed">VERIFIED</span>
+              </div>
+              <div class="toggle-switch-row">
+                <div>
+                  <div style="font-weight: 600; color: #fff;">OWASP Top 10 PenTest Assessment</div>
+                  <div style="font-size: 0.8rem; color: #9ca3af;">0 Critical, 0 High Vulnerabilities</div>
+                </div>
+                <span class="status-badge status-completed">PASSED</span>
+              </div>
+              <div class="toggle-switch-row">
+                <div>
+                  <div style="font-weight: 600; color: #fff;">ISO 27001 Information Security</div>
+                  <div style="font-size: 0.8rem; color: #9ca3af;">Certified Cloud Security Standard</div>
+                </div>
+                <span class="status-badge status-completed">ACTIVE</span>
+              </div>
+              <div class="toggle-switch-row">
+                <div>
+                  <div style="font-weight: 600; color: #fff;">HIPAA & GDPR Data Sovereignty</div>
+                  <div style="font-size: 0.8rem; color: #9ca3af;">Zero-Knowledge AES-256 Storage</div>
+                </div>
+                <span class="status-badge status-completed">ENFORCED</span>
+              </div>
+            </div>
+
+            <div class="settings-card">
+              <div class="settings-card-title"><i class="fa-solid fa-list-ol" style="color: #fbbf24;"></i> Real-Time Audit Log Feed</div>
+              <div style="display: flex; flex-direction: column; gap: 12px;">
+                <div class="audit-log-row"><span>[15:28:04] AES-256 Vault Key Rotated</span><span style="color: #34d399;">Success</span></div>
+                <div class="audit-log-row"><span>[15:10:04] API Access Key Regenerated</span><span style="color: #9ca3af;">198.51.100.42</span></div>
+                <div class="audit-log-row"><span>[14:45:18] 2FA Hardware YubiKey Enforced</span><span style="color: #38bdf8;">Alexei Volkov</span></div>
+                <div class="audit-log-row"><span>[14:12:00] OAuth2 Scopes Synced to Gateways</span><span style="color: #c084fc;">Auth0 Mesh</span></div>
+                <div class="audit-log-row"><span>[13:50:22] Container Scan Trivy v0.48 Passed</span><span style="color: #34d399;">0 CVEs</span></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Zero-Trust Active Token Sessions Table -->
+          <div class="dash-table-wrapper" style="margin-bottom: 32px;">
+            <div class="dash-table-header">
+              <span style="font-weight: 700; font-size: 1.1rem;"><i class="fa-solid fa-key" style="color: #38bdf8; margin-right: 8px;"></i> Zero-Trust Authenticated Sessions & API Access Keys</span>
+              <a href="404.html" class="btn btn-secondary btn-sm"><i class="fa-solid fa-user-slash"></i> Revoke All Sessions</a>
+            </div>
+            <div class="dash-table-container">
+              <table class="dash-table">
+                <thead>
+                  <tr>
+                    <th>Identity / Service Account</th>
+                    <th>Auth Method</th>
+                    <th>IP Address</th>
+                    <th>Location</th>
+                    <th>Scope</th>
+                    <th>Last Active</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>alexei.volkov@stackly-dev.io</strong></td>
+                    <td><span class="badge-tag badge-cyan">YubiKey 5C NFC</span></td>
+                    <td>198.51.100.42</td>
+                    <td>Frankfurt, DE</td>
+                    <td><code>root:admin</code></td>
+                    <td><span style="color: #34d399; font-weight: 700;">Active Now</span></td>
+                    <td><a href="404.html" class="btn btn-secondary btn-sm"><i class="fa-solid fa-power-off"></i> Revoke</a></td>
+                  </tr>
+                  <tr>
+                    <td><strong>ci-cd-github-actions-bot</strong></td>
+                    <td><span class="badge-tag badge-indigo">OAuth2 Bearer</span></td>
+                    <td>140.82.112.4</td>
+                    <td>GitHub Runner</td>
+                    <td><code>ci:deploy</code></td>
+                    <td>5m ago</td>
+                    <td><a href="404.html" class="btn btn-secondary btn-sm"><i class="fa-solid fa-rotate"></i> Rotate</a></td>
+                  </tr>
+                  <tr>
+                    <td><strong>stripe-webhook-handler</strong></td>
+                    <td><span class="badge-tag badge-emerald">HMAC-SHA256</span></td>
+                    <td>54.187.205.1</td>
+                    <td>AWS US-West</td>
+                    <td><code>webhooks:write</code></td>
+                    <td>12m ago</td>
+                    <td><a href="404.html" class="btn btn-secondary btn-sm"><i class="fa-solid fa-check"></i> Verify</a></td>
+                  </tr>
+                  <tr>
+                    <td><strong>vector-ai-sync-agent</strong></td>
+                    <td><span class="badge-tag badge-violet">JWT Bearer RSA</span></td>
+                    <td>35.180.12.99</td>
+                    <td>Tokyo, JP</td>
+                    <td><code>ai:readwrite</code></td>
+                    <td>18m ago</td>
+                    <td><a href="404.html" class="btn btn-secondary btn-sm"><i class="fa-solid fa-power-off"></i> Revoke</a></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB 4: SYSTEM CONFIG -->
+        <div id="tab-config" class="dash-tab-pane">
+          <h2 style="font-size: 1.5rem; margin-bottom: 20px;">System Configuration & Danger Zone</h2>
+
+          <!-- Feature Flags & Environment Toggles -->
+          <div class="settings-grid" style="margin-bottom: 32px;">
+            <div class="settings-card">
+              <div class="settings-card-title"><i class="fa-solid fa-toggle-on" style="color: #38bdf8;"></i> Infrastructure Feature Flags & Policy Toggles</div>
+              <div style="display: flex; flex-direction: column; gap: 14px;">
+                <div class="toggle-switch-row">
+                  <div>
+                    <div style="font-weight: 600; color: #fff;">GraphQL 8-Level Query Depth Enforcer</div>
+                    <div style="font-size: 0.8rem; color: #9ca3af;">Blocks recursive nested query payload attacks</div>
+                  </div>
+                  <span class="status-badge status-completed">ENFORCED</span>
+                </div>
+                <div class="toggle-switch-row">
+                  <div>
+                    <div style="font-weight: 600; color: #fff;">Redis Token Bucket Rate Limiting</div>
+                    <div style="font-size: 0.8rem; color: #9ca3af;">Cap: 10,000 requests per minute per IP</div>
+                  </div>
+                  <span class="status-badge status-completed">ACTIVE</span>
+                </div>
+                <div class="toggle-switch-row">
+                  <div>
+                    <div style="font-weight: 600; color: #fff;">HNSW Vector Embedding Acceleration</div>
+                    <div style="font-size: 0.8rem; color: #9ca3af;">GPU vector search index offloading</div>
+                  </div>
+                  <span class="status-badge status-completed">ENABLED</span>
+                </div>
+                <div class="toggle-switch-row">
+                  <div>
+                    <div style="font-weight: 600; color: #fff;">Automated 24-Hour Vault Key Rotation</div>
+                    <div style="font-size: 0.8rem; color: #9ca3af;">Rotates database master secrets on schedule</div>
+                  </div>
+                  <span class="status-badge status-completed">ENABLED</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="settings-card">
+              <div class="settings-card-title"><i class="fa-solid fa-bell" style="color: #fbbf24;"></i> Incident Alerting & Operations Webhooks</div>
+              <div style="display: flex; flex-direction: column; gap: 14px;">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <div>
+                    <strong style="color: #fff;">PagerDuty On-Call Integration</strong>
+                    <div style="font-size: 0.8rem; color: #9ca3af;">Escalation Policy: Alexei Volkov (#ops-oncall)</div>
+                  </div>
+                  <span class="badge-tag badge-cyan">CONNECTED</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <div>
+                    <strong style="color: #fff;">Slack Incident Alert Channel</strong>
+                    <div style="font-size: 0.8rem; color: #9ca3af;">Webhook: #ops-critical-telemetry</div>
+                  </div>
+                  <span class="badge-tag badge-emerald">CONNECTED</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <div>
+                    <strong style="color: #fff;">AWS SES System Notification Gateway</strong>
+                    <div style="font-size: 0.8rem; color: #9ca3af;">Region: us-east-1 (DKIM Verified)</div>
+                  </div>
+                  <span class="badge-tag badge-indigo">OPERATIONAL</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Extended Danger Zone Actions Grid -->
+          <div class="settings-card" style="border-color: rgba(244, 63, 94, 0.4); background: rgba(244, 63, 94, 0.05);">
+            <div class="settings-card-title" style="color: #f43f5e;"><i class="fa-solid fa-triangle-exclamation"></i> SysAdmin Multi-Region Danger Zone</div>
+            
+            <div style="display: flex; flex-direction: column; gap: 16px;">
+              <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; border-bottom: 1px solid rgba(244, 63, 94, 0.15); padding-bottom: 14px;">
+                <div>
+                  <strong style="color: #fff;">Purge Staging Edge Cache & Token Buckets</strong>
+                  <div style="font-size: 0.8rem; color: #9ca3af;">Flushes transient Redis cache without affecting production PostgreSQL storage.</div>
+                </div>
+                <button class="btn btn-secondary" style="border-color: rgba(244, 63, 94, 0.5); color: #f43f5e;" onclick="window.location.href='404.html'"><i class="fa-solid fa-trash-can"></i> Purge Staging Cache</button>
+              </div>
+
+              <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; border-bottom: 1px solid rgba(244, 63, 94, 0.15); padding-bottom: 14px;">
+                <div>
+                  <strong style="color: #fff;">Trigger Full Database Vacuum & Reindex</strong>
+                  <div style="font-size: 0.8rem; color: #9ca3af;">Reclaims dead database tuples across master shards (May introduce temporary +2ms latency).</div>
+                </div>
+                <button class="btn btn-secondary" style="border-color: rgba(244, 63, 94, 0.5); color: #f43f5e;" onclick="window.location.href='404.html'"><i class="fa-solid fa-database"></i> Trigger Vacuum</button>
+              </div>
+
+              <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;">
+                <div>
+                  <strong style="color: #fff;">Emergency Cluster Read-Only Lockdown</strong>
+                  <div style="font-size: 0.8rem; color: #9ca3af;">Locks write transactions across all PostgreSQL nodes in event of security breach.</div>
+                </div>
+                <button class="btn btn-secondary" style="border-color: rgba(244, 63, 94, 0.5); color: #f43f5e;" onclick="window.location.href='404.html'"><i class="fa-solid fa-lock"></i> Lock Down Cluster</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <script src="main.js"></script>
+  <script src="dashboard.js"></script>
+  <script src="3d-effects.js"></script>
+</body>
+</html>

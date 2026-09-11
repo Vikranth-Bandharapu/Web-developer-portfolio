@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Engineering & Tamil Nadu Studio — Stackly</title>
+  <meta name="description" content="Get in touch with Stackly's senior product architects at our Tamil Nadu, India studio or global offices to discuss your SaaS project, cloud architecture, or design system requirements.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- FontAwesome 6 Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- AOS Animation Library CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
+
+  <!-- Core CSS Systems -->
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="animations.css">
+</head>
+<body>
+
+  <!-- 1. NAVIGATION HEADER -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="logo-brand">
+        <img src="assets/logo.webp" alt="Stackly Logo" class="logo-image">
+      </a>
+
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="services.html" class="nav-link">Services</a></li>
+          <li><a href="projects.html" class="nav-link">Projects</a></li>
+          <li><a href="blog.html" class="nav-link">Blog</a></li>
+          <li><a href="contact.html" class="nav-link active">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="login.html" class="btn btn-secondary">Login</a>
+        <a href="signup.html" class="btn btn-primary shimmer-btn">Get Started</a>
+        <button class="mobile-toggle" aria-label="Open Navigation Drawer"><i class="fa-solid fa-bars-staggered"></i></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MOBILE NAVIGATION DRAWER -->
+  <div class="drawer-backdrop"></div>
+  <aside class="mobile-drawer">
+    <div>
+      <div class="drawer-header">
+        <a href="index.html" class="logo-brand">
+          <img src="assets/logo.webp" alt="Stackly Logo" class="logo-image">
+        </a>
+        <button class="drawer-close" aria-label="Close Drawer"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+
+      <ul class="drawer-nav-links">
+        <li><a href="index.html" class="drawer-nav-link"><i class="fa-solid fa-house"></i> Home</a></li>
+        <li><a href="about.html" class="drawer-nav-link"><i class="fa-solid fa-circle-info"></i> About</a></li>
+        <li><a href="services.html" class="drawer-nav-link"><i class="fa-solid fa-cubes"></i> Services</a></li>
+        <li><a href="projects.html" class="drawer-nav-link"><i class="fa-solid fa-folder-open"></i> Projects</a></li>
+        <li><a href="blog.html" class="drawer-nav-link"><i class="fa-solid fa-newspaper"></i> Blog</a></li>
+        <li><a href="contact.html" class="drawer-nav-link active"><i class="fa-solid fa-paper-plane"></i> Contact</a></li>
+      </ul>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--border-dark);">
+      <a href="login.html" class="btn btn-secondary" style="width: 100%; justify-content: center;"><i class="fa-solid fa-right-to-bracket"></i> Login</a>
+      <a href="signup.html" class="btn btn-primary shimmer-btn" style="width: 100%; justify-content: center;"><i class="fa-solid fa-user-plus"></i> Get Started</a>
+    </div>
+  </aside>
+
+  <main>
+    <!-- 2. CONTACT HERO & FORM SPLIT -->
+    <section class="hero-wrapper section-dark bg-grid-pattern" style="position: relative;">
+      <div class="ambient-orb orb-indigo" style="top: -40px; left: -40px;"></div>
+      <div class="ambient-orb orb-cyan" style="bottom: -40px; right: -40px;"></div>
+
+      <div class="container" style="position: relative; z-index: 2;">
+        <div style="display: grid; grid-template-columns: 1fr 1.1fr; gap: 60px; align-items: flex-start;">
+          <div data-aos="fade-right">
+            <span class="badge-tag badge-cyan"><i class="fa-solid fa-comments"></i> Start Conversation</span>
+            <h1 class="text-gradient" style="font-size: clamp(2.4rem, 4.5vw, 3.8rem); margin-top: 16px;">Let's Build Something Exceptional Together</h1>
+            <p style="font-size: 1.15rem; color: var(--text-dark-secondary); margin-bottom: 32px;">
+              Ready to elevate your engineering standard? Reach out to our principal developers for architectural discovery, timeline estimates, and budget scoping.
+            </p>
+
+            <div style="display: flex; flex-direction: column; gap: 20px;">
+              <div style="display: flex; align-items: center; gap: 16px;">
+                <div style="background: rgba(79, 70, 229, 0.25); color: var(--accent-indigo); width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem;"><i class="fa-solid fa-location-dot"></i></div>
+                <div>
+                  <div style="font-size: 0.85rem; color: #9ca3af;">Tamil Nadu Studio Hub</div>
+                  <div style="font-weight: 700; color: #ffffff;">OMR IT Expressway, Chennai, Tamil Nadu, India</div>
+                </div>
+              </div>
+
+              <div style="display: flex; align-items: center; gap: 16px;">
+                <div style="background: rgba(6, 182, 212, 0.25); color: var(--accent-cyan); width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem;"><i class="fa-solid fa-envelope"></i></div>
+                <div>
+                  <div style="font-size: 0.85rem; color: #9ca3af;">Direct Technical Inquiries</div>
+                  <div style="font-weight: 700; color: #ffffff;">engineering@stackly-dev.io</div>
+                </div>
+              </div>
+
+              <div style="display: flex; align-items: center; gap: 16px;">
+                <div style="background: rgba(16, 185, 129, 0.25); color: var(--accent-emerald); width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem;"><i class="fa-solid fa-clock"></i></div>
+                <div>
+                  <div style="font-size: 0.85rem; color: #9ca3af;">Response Guarantee</div>
+                  <div style="font-weight: 700; color: #ffffff;">Within 24 Hours (Mon-Fri)</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3. PROJECT DISCOVERY FORM -->
+          <div class="bento-card" data-aos="fade-left" data-aos-delay="200" style="border-color: var(--border-dark-highlight);">
+            <h3 style="font-size: 1.4rem; margin-bottom: 20px; color: #fff;">Project Discovery Form</h3>
+            <form id="contact-form">
+              <div style="margin-bottom: 16px;">
+                <label style="font-size: 0.9rem; font-weight: 600; display: block; margin-bottom: 6px; color: #fff;">Full Name *</label>
+                <input type="text" id="contact-name" placeholder="Alex Mercer" required style="width: 100%; padding: 12px 16px; background: rgba(255,255,255,0.05); border: 1px solid var(--border-dark); border-radius: 10px; color: #fff; font-size: 0.95rem;">
+              </div>
+
+              <div style="margin-bottom: 16px;">
+                <label style="font-size: 0.9rem; font-weight: 600; display: block; margin-bottom: 6px; color: #fff;">Business Email *</label>
+                <input type="email" id="contact-email" placeholder="alex@company.com" required style="width: 100%; padding: 12px 16px; background: rgba(255,255,255,0.05); border: 1px solid var(--border-dark); border-radius: 10px; color: #fff; font-size: 0.95rem;">
+              </div>
+
+              <div style="margin-bottom: 16px;">
+                <label style="font-size: 0.9rem; font-weight: 600; display: block; margin-bottom: 6px; color: #fff;">Estimated Budget Scope</label>
+                <select id="contact-budget" style="width: 100%; padding: 12px 16px; background: #1f2937; border: 1px solid var(--border-dark); border-radius: 10px; color: #fff; font-size: 0.95rem;">
+                  <option value="10k-25k">$10,000 – $25,000 (Prototype / MVP)</option>
+                  <option value="25k-50k">$25,000 – $50,000 (Full SaaS Platform)</option>
+                  <option value="50k+">$50,000+ (Enterprise Architecture)</option>
+                </select>
+              </div>
+
+              <div style="margin-bottom: 24px;">
+                <label style="font-size: 0.9rem; font-weight: 600; display: block; margin-bottom: 6px; color: #fff;">Project Overview & Objectives *</label>
+                <textarea id="contact-message" rows="4" placeholder="Describe your technical requirements, current stack, and desired launch date..." required style="width: 100%; padding: 12px 16px; background: rgba(255,255,255,0.05); border: 1px solid var(--border-dark); border-radius: 10px; color: #fff; font-size: 0.95rem; resize: vertical;"></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary shimmer-btn" style="width: 100%;"><i class="fa-solid fa-paper-plane"></i> Submit Technical Request</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. REAL INTERACTIVE GOOGLE MAP (STACKLY TAMIL NADU, INDIA) -->
+    <section class="section-tinted-cyan" style="position: relative;">
+      <div class="ambient-orb orb-cyan" style="top: 20%; right: 10px;"></div>
+
+      <div class="container" style="position: relative; z-index: 2;">
+        <div class="section-header" data-aos="fade-up">
+          <span class="badge-tag badge-cyan"><i class="fa-solid fa-location-dot"></i> Studio Location</span>
+          <h2 class="section-title">Stackly Tamil Nadu Engineering Hub</h2>
+          <p class="section-subtitle">Visit our flagship software engineering studio located on the OMR IT Corridor in Tamil Nadu, India.</p>
+        </div>
+
+        <div class="bento-card" data-aos="zoom-in" style="padding: 16px; border-color: var(--border-dark-highlight); overflow: hidden;">
+          <!-- Real Interactive Embedded Google Map for Stackly Tamil Nadu, India -->
+          <iframe 
+            src="https://maps.google.com/maps?q=OMR%20IT%20Expressway,%20Chennai,%20Tamil%20Nadu,%20India&t=&z=14&ie=UTF8&iwloc=&output=embed" 
+            width="100%" 
+            height="450" 
+            style="border: 0; border-radius: var(--radius-md); filter: grayscale(80%) invert(90%) contrast(1.2);" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Stackly Tamil Nadu Studio Google Map Location">
+          </iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. STACKLY TAMIL NADU STUDIO DETAILS CARD -->
+    <section class="section-dark-alt">
+      <div class="container">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center;" data-aos="fade-up">
+          <div class="bento-card" style="border-color: var(--accent-cyan);">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px;">
+              <h3 style="font-size: 1.4rem; color: #fff;">Tamil Nadu Hub Details</h3>
+              <span class="badge-tag badge-emerald"><span class="card-status-dot"></span>Open Today</span>
+            </div>
+
+            <ul style="list-style: none; display: flex; flex-direction: column; gap: 16px; font-size: 0.95rem;">
+              <li style="display: flex; align-items: flex-start; gap: 14px;">
+                <i class="fa-solid fa-building" style="color: var(--accent-cyan); font-size: 1.2rem; margin-top: 2px;"></i>
+                <div>
+                  <strong>Address:</strong><br>
+                  Stackly Technology Tower, Plot 42, OMR IT Expressway, Perungudi, Chennai, Tamil Nadu - 600096, India
+                </div>
+              </li>
+              <li style="display: flex; align-items: center; gap: 14px;">
+                <i class="fa-solid fa-phone" style="color: var(--accent-cyan); font-size: 1.2rem;"></i>
+                <div><strong>Phone:</strong> +91 44 4890 2026 / +91 98400 12026</div>
+              </li>
+              <li style="display: flex; align-items: center; gap: 14px;">
+                <i class="fa-solid fa-envelope" style="color: var(--accent-cyan); font-size: 1.2rem;"></i>
+                <div><strong>Email:</strong> tamilnadu@stackly-dev.io</div>
+              </li>
+              <li style="display: flex; align-items: center; gap: 14px;">
+                <i class="fa-solid fa-clock" style="color: var(--accent-cyan); font-size: 1.2rem;"></i>
+                <div><strong>Operating Hours:</strong> Mon - Fri: 9:00 AM – 7:00 PM IST</div>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <span class="badge-tag">Regional Excellence</span>
+            <h3 style="font-size: 1.8rem; margin: 12px 0; color: #fff;">Tamil Nadu Tech Corridor Hub</h3>
+            <p style="color: var(--text-dark-secondary); font-size: 1.05rem; line-height: 1.7; margin-bottom: 20px;">
+              Our Tamil Nadu engineering studio houses 60+ senior full-stack developers, cloud architects, and UI/UX designers specializing in enterprise SaaS products and Kubernetes infrastructure.
+            </p>
+            <a href="contact.html" onclick="event.preventDefault(); showToast('Directions sent to your email.', 'info')" class="btn btn-secondary"><i class="fa-solid fa-diamond-turn-right"></i> Get Driving Directions</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. GLOBAL HUB LOCATIONS SWITCHER -->
+    <section class="section-dark">
+      <div class="container">
+        <div class="section-header" data-aos="fade-up">
+          <span class="badge-tag">Global Footprint</span>
+          <h2 class="section-title">Global Office Studios</h2>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;">
+          <div class="bento-card interactive-card" data-aos="fade-up" data-aos-delay="100">
+            <h3 style="font-size: 1.3rem; margin-bottom: 8px; color: #fff;">San Francisco HQ</h3>
+            <p style="color: var(--text-dark-secondary); font-size: 0.9rem; margin-bottom: 16px;">500 Howard Street, Suite 400<br>San Francisco, CA 94105</p>
+            <div style="font-weight: 700; color: var(--accent-cyan);">+1 (415) 890-4020</div>
+          </div>
+
+          <div class="bento-card interactive-card" data-aos="fade-up" data-aos-delay="200">
+            <h3 style="font-size: 1.3rem; margin-bottom: 8px; color: #fff;">London Studio</h3>
+            <p style="color: var(--text-dark-secondary); font-size: 0.9rem; margin-bottom: 16px;">30 St Mary Axe, Floor 14<br>London, EC3A 8EP, UK</p>
+            <div style="font-weight: 700; color: var(--accent-cyan);">+44 20 7946 0912</div>
+          </div>
+
+          <div class="bento-card interactive-card" data-aos="fade-up" data-aos-delay="300">
+            <h3 style="font-size: 1.3rem; margin-bottom: 8px; color: #fff;">Tokyo Tech Pod</h3>
+            <p style="color: var(--text-dark-secondary); font-size: 0.9rem; margin-bottom: 16px;">Roppongi Hills Mori Tower<br>Minato City, Tokyo 106-6108</p>
+            <div style="font-weight: 700; color: var(--accent-cyan);">+81 3 5555 0143</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. INTERACTIVE BOOKING CALENDAR WIDGET -->
+    <section class="section-tinted-indigo">
+      <div class="container">
+        <div class="section-header" data-aos="fade-up">
+          <span class="badge-tag badge-cyan">Schedule Call</span>
+          <h2 class="section-title">Book a 30-Minute Discovery Consultation</h2>
+        </div>
+
+        <div class="bento-card" data-aos="zoom-in" style="max-width: 760px; margin: 0 auto; border-color: var(--border-dark-highlight); text-align: center;">
+          <h4 style="font-size: 1.3rem; margin-bottom: 12px; color: #fff;">Select Your Preferred Consultation Date</h4>
+          <p style="color: var(--text-dark-secondary); font-size: 0.9rem; margin-bottom: 24px;">Meet directly with our Principal Architect or Tamil Nadu Pod Lead.</p>
+
+          <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin-bottom: 24px;">
+            <button type="button" class="btn btn-secondary" onclick="showToast('Selected Monday 10:00 AM IST', 'info')" style="padding: 12px; font-size: 0.85rem;">Mon, Sep 14</button>
+            <button type="button" class="btn btn-secondary" onclick="showToast('Selected Tuesday 2:00 PM IST', 'info')" style="padding: 12px; font-size: 0.85rem;">Tue, Sep 15</button>
+            <button type="button" class="btn btn-primary shimmer-btn" onclick="showToast('Selected Wednesday 4:00 PM IST', 'info')" style="padding: 12px; font-size: 0.85rem;">Wed, Sep 16</button>
+            <button type="button" class="btn btn-secondary" onclick="showToast('Selected Thursday 11:00 AM IST', 'info')" style="padding: 12px; font-size: 0.85rem;">Thu, Sep 17</button>
+            <button type="button" class="btn btn-secondary" onclick="showToast('Selected Friday 5:00 PM IST', 'info')" style="padding: 12px; font-size: 0.85rem;">Fri, Sep 18</button>
+          </div>
+
+          <button class="btn btn-cyan shimmer-btn" onclick="showToast('Discovery slot reserved! Confirmation email sent.', 'success')"><i class="fa-solid fa-calendar-check"></i> Reserve Selected Slot</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. DIRECT DEPARTMENT CHANNELS -->
+    <section class="section-dark-alt">
+      <div class="container">
+        <div class="section-header" data-aos="fade-up">
+          <span class="badge-tag">Communication Desk</span>
+          <h2 class="section-title">Direct Department Channels</h2>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;">
+          <div class="bento-card" data-aos="fade-up" data-aos-delay="100">
+            <i class="fa-solid fa-code" style="font-size: 1.8rem; color: var(--accent-cyan); margin-bottom: 10px;"></i>
+            <h5 style="font-size: 1.05rem; color: #fff;">Architecture Desk</h5>
+            <p style="color: var(--text-dark-secondary); font-size: 0.85rem; margin-top: 4px;">arch@stackly-dev.io</p>
+          </div>
+
+          <div class="bento-card" data-aos="fade-up" data-aos-delay="200">
+            <i class="fa-solid fa-briefcase" style="font-size: 1.8rem; color: var(--accent-indigo); margin-bottom: 10px;"></i>
+            <h5 style="font-size: 1.05rem; color: #fff;">Enterprise Sales</h5>
+            <p style="color: var(--text-dark-secondary); font-size: 0.85rem; margin-top: 4px;">sales@stackly-dev.io</p>
+          </div>
+
+          <div class="bento-card" data-aos="fade-up" data-aos-delay="300">
+            <i class="fa-solid fa-shield-halved" style="font-size: 1.8rem; color: var(--accent-violet); margin-bottom: 10px;"></i>
+            <h5 style="font-size: 1.05rem; color: #fff;">Incident SLA Desk</h5>
+            <p style="color: var(--text-dark-secondary); font-size: 0.85rem; margin-top: 4px;">sla@stackly-dev.io</p>
+          </div>
+
+          <div class="bento-card" data-aos="fade-up" data-aos-delay="400">
+            <i class="fa-solid fa-newspaper" style="font-size: 1.8rem; color: var(--accent-emerald); margin-bottom: 10px;"></i>
+            <h5 style="font-size: 1.05rem; color: #fff;">Media & Press</h5>
+            <p style="color: var(--text-dark-secondary); font-size: 0.85rem; margin-top: 4px;">press@stackly-dev.io</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. SLA & RESPONSE GUARANTEE -->
+    <section class="section-light">
+      <div class="container">
+        <div class="section-header" data-aos="fade-up">
+          <span class="badge-tag" style="background: rgba(79,70,229,0.1); color: var(--accent-indigo);">Service Commitments</span>
+          <h2 class="section-title" style="color: var(--text-light-primary);">Our Response Guarantee</h2>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;">
+          <div class="bento-card-light" data-aos="fade-up" data-aos-delay="100" style="padding: 28px; border-radius: var(--radius-md);">
+            <i class="fa-solid fa-clock" style="font-size: 1.8rem; color: var(--accent-indigo); margin-bottom: 12px;"></i>
+            <h4 style="font-size: 1.15rem; margin-bottom: 6px;">24-Hour Initial SLA</h4>
+            <p style="color: var(--text-light-secondary); font-size: 0.85rem;">All discovery submissions receive an initial technical response within 24 business hours.</p>
+          </div>
+
+          <div class="bento-card-light" data-aos="fade-up" data-aos-delay="200" style="padding: 28px; border-radius: var(--radius-md);">
+            <i class="fa-solid fa-file-contract" style="font-size: 1.8rem; color: var(--accent-cyan); margin-bottom: 12px;"></i>
+            <h4 style="font-size: 1.15rem; margin-bottom: 6px;">Strict Mutual NDA</h4>
+            <p style="color: var(--text-light-secondary); font-size: 0.85rem;">Your proprietary product roadmap and business concepts are protected under NDA.</p>
+          </div>
+
+          <div class="bento-card-light" data-aos="fade-up" data-aos-delay="300" style="padding: 28px; border-radius: var(--radius-md);">
+            <i class="fa-solid fa-user-gear" style="font-size: 1.8rem; color: var(--accent-emerald); margin-bottom: 12px;"></i>
+            <h4 style="font-size: 1.15rem; margin-bottom: 6px;">Direct Architect Access</h4>
+            <p style="color: var(--text-light-secondary); font-size: 0.85rem;">You speak directly with senior software developers, not sales account managers.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10. ONBOARDING TIMELINE -->
+    <section class="section-dark-alt">
+      <div class="container">
+        <div class="section-header" data-aos="fade-up">
+          <span class="badge-tag">Client Journey</span>
+          <h2 class="section-title">3 Steps to Kickstart Your Project</h2>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;">
+          <div class="bento-card" data-aos="fade-up" data-aos-delay="100">
+            <div style="font-weight: 800; color: var(--accent-cyan); font-size: 1.6rem; margin-bottom: 8px;">Step 1</div>
+            <h4 style="font-size: 1.2rem; color: #fff; margin-bottom: 8px;">Discovery Alignment</h4>
+            <p style="color: var(--text-dark-secondary); font-size: 0.85rem;">Submit discovery form and review system requirements on a 30-minute tech call.</p>
+          </div>
+
+          <div class="bento-card" data-aos="fade-up" data-aos-delay="200">
+            <div style="font-weight: 800; color: var(--accent-indigo); font-size: 1.6rem; margin-bottom: 8px;">Step 2</div>
+            <h4 style="font-size: 1.2rem; color: #fff; margin-bottom: 8px;">NDA & Architecture Proposal</h4>
+            <p style="color: var(--text-dark-secondary); font-size: 0.85rem;">Execute mutual NDA and receive complete technical scope & cost estimates.</p>
+          </div>
+
+          <div class="bento-card" data-aos="fade-up" data-aos-delay="300">
+            <div style="font-weight: 800; color: var(--accent-emerald); font-size: 1.6rem; margin-bottom: 8px;">Step 3</div>
+            <h4 style="font-size: 1.2rem; color: #fff; margin-bottom: 8px;">Sprint 1 Kickoff</h4>
+            <p style="color: var(--text-dark-secondary); font-size: 0.85rem;">Engineering pod onboarding in Slack & Jira within 48 hours.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 11. FAQ ACCORDIONS -->
+    <section class="section-dark">
+      <div class="container">
+        <div class="section-header" data-aos="fade-up">
+          <span class="badge-tag">Contact FAQ</span>
+          <h2 class="section-title">Frequently Asked Questions</h2>
+        </div>
+
+        <div class="accordion-list" data-aos="fade-up">
+          <div class="accordion-item active">
+            <div class="accordion-header">
+              <span>Can we schedule an in-person meeting at the Tamil Nadu Studio?</span>
+              <i class="fa-solid fa-chevron-down accordion-icon"></i>
+            </div>
+            <div class="accordion-content">
+              Yes! Our Tamil Nadu engineering hub on OMR IT Expressway, Chennai welcomes prospective clients for architecture review sessions. Please submit the form to schedule your visit.
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <span>What information should we prepare before our discovery call?</span>
+              <i class="fa-solid fa-chevron-down accordion-icon"></i>
+            </div>
+            <div class="accordion-content">
+              Having your current tech stack, desired launch timeline, key feature priorities, and estimated budget scope will help our lead architects provide precise feedback.
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <span>Do you work with international clients outside of India?</span>
+              <i class="fa-solid fa-chevron-down accordion-icon"></i>
+            </div>
+            <div class="accordion-content">
+              Over 70% of our clients are global tech firms across North America, Europe, and Asia-Pacific. We provide continuous 24/7 timezone coverage.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 12. CTA BANNER -->
+    <section class="section-gradient-banner" data-aos="zoom-in" data-aos-duration="900">
+      <div class="container" style="text-align: center;">
+        <h2 style="font-size: clamp(2rem, 4vw, 3.2rem); margin-bottom: 16px;">Ready to Elevate Your Web Engineering Standard?</h2>
+        <p style="font-size: 1.15rem; max-width: 600px; margin: 0 auto 32px auto; opacity: 0.9;">Or log in directly to your active client dashboard workspace.</p>
+        <a href="login.html" class="btn btn-cyan shimmer-btn" style="padding: 14px 32px;"><i class="fa-solid fa-right-to-bracket"></i> Login to Client Dashboard</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- 1. BRAND COLUMN -->
+        <div class="footer-brand">
+          <a href="index.html" class="logo-brand">
+            <img src="assets/logo.webp" alt="Stackly Logo" class="logo-image">
+          </a>
+          <p>The intelligent enterprise management platform built for scale.</p>
+          <div class="footer-social-links">
+            <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn" class="social-circle-icon"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://twitter.com" target="_blank" aria-label="Twitter" class="social-circle-icon"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="https://youtube.com" target="_blank" aria-label="YouTube" class="social-circle-icon"><i class="fa-brands fa-youtube"></i></a>
+            <a href="https://github.com" target="_blank" aria-label="GitHub" class="social-circle-icon"><i class="fa-brands fa-github"></i></a>
+          </div>
+        </div>
+
+        <!-- 2. QUICK LINKS -->
+        <div>
+          <h4 class="footer-title">Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- 3. SUPPORT -->
+        <div>
+          <h4 class="footer-title">Support</h4>
+          <ul class="footer-links">
+            <li><a href="404.html">Help Center</a></li>
+            <li><a href="404.html">FAQ</a></li>
+            <li><a href="404.html">Documentation</a></li>
+            <li><a href="404.html">Privacy Policy</a></li>
+            <li><a href="404.html">Terms of Service</a></li>
+          </ul>
+        </div>
+
+        <!-- 4. CONNECT -->
+        <div>
+          <h4 class="footer-title">Connect</h4>
+          <ul class="footer-contact-list">
+            <li class="footer-contact-item">
+              <i class="fa-solid fa-location-dot contact-icon"></i>
+              <div>
+                <strong>Office Address:</strong>
+                <span>OMR IT Expressway, Chennai, Tamil Nadu, India</span>
+              </div>
+            </li>
+            <li class="footer-contact-item">
+              <i class="fa-solid fa-phone contact-icon"></i>
+              <div>
+                <strong>Phone:</strong>
+                <span>+91 98765 43210</span>
+              </div>
+            </li>
+            <li class="footer-contact-item">
+              <i class="fa-solid fa-envelope contact-icon"></i>
+              <div>
+                <strong>Sales Email:</strong>
+                <span>info@stackly.com</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 Stackly Web Engineering Studio. All rights reserved. Stackly Tamil Nadu Hub.</div>
+        <div style="display: flex; gap: 20px;">
+          <a href="404.html">Privacy Policy</a>
+          <a href="404.html">Terms of Service</a>
+          <a href="404.html">Security Protocol</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="main.js"></script>
+  <script src="3d-effects.js"></script>
+</body>
+</html>

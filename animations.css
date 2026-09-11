@@ -1,0 +1,242 @@
+/* ==========================================================================
+   STACKLY DESIGN SYSTEM — ANIMATIONS, AMBIENT GLOW & MICRO-INTERACTIONS
+   ========================================================================== */
+
+/* Keyframe Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes floatSlow {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-12px) rotate(1.5deg); }
+}
+
+@keyframes floatReverse {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(12px) rotate(-1.5deg); }
+}
+
+@keyframes pulseOrb {
+  0%, 100% { transform: scale(1) translate(0, 0); opacity: 0.45; }
+  50% { transform: scale(1.15) translate(20px, -20px); opacity: 0.75; }
+}
+
+@keyframes rotateGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes shimmerWave {
+  0% { transform: translateX(-150%) skewX(-20deg); }
+  100% { transform: translateX(300%) skewX(-20deg); }
+}
+
+/* 3D Glassmorphism & Cyber Glow Enhancements */
+.card-3d-wrapper {
+  perspective: 1000px;
+}
+
+.glow-card-3d {
+  background: rgba(15, 23, 42, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-lg, 16px);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.glow-card-3d::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.08), transparent);
+  transition: left 0.7s ease;
+}
+
+.glow-card-3d:hover::before {
+  left: 100%;
+}
+
+.glow-card-3d:hover {
+  border-color: rgba(6, 182, 212, 0.5);
+  box-shadow: 0 20px 45px rgba(6, 182, 212, 0.2), 0 0 30px rgba(79, 70, 229, 0.25);
+}
+
+@keyframes pulseNeonBorder {
+  0%, 100% { border-color: rgba(6, 182, 212, 0.4); box-shadow: 0 0 15px rgba(6, 182, 212, 0.2); }
+  50% { border-color: rgba(139, 92, 246, 0.6); box-shadow: 0 0 25px rgba(139, 92, 246, 0.35); }
+}
+
+.neon-border-3d {
+  animation: pulseNeonBorder 4s infinite ease-in-out;
+}
+
+/* Ambient Glow Orbs */
+.ambient-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.orb-indigo {
+  width: 450px;
+  height: 450px;
+  background: radial-gradient(circle, rgba(79, 70, 229, 0.35) 0%, rgba(79, 70, 229, 0) 70%);
+  animation: pulseOrb 8s ease-in-out infinite;
+}
+
+.orb-cyan {
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(6, 182, 212, 0.3) 0%, rgba(6, 182, 212, 0) 70%);
+  animation: pulseOrb 10s ease-in-out infinite reverse;
+}
+
+.orb-violet {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.3) 0%, rgba(139, 92, 246, 0) 70%);
+  animation: pulseOrb 12s ease-in-out infinite;
+}
+
+/* Background Mesh & Grid Patterns */
+.bg-grid-pattern {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+.bg-line-pattern {
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+                    linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* Visually Rich Image Card Overlays */
+.image-card-wrapper {
+  position: relative;
+  border-radius: var(--radius-lg, 20px);
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.image-card-wrapper img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.image-card-wrapper:hover img {
+  transform: scale(1.08);
+}
+
+.image-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(11, 15, 25, 0.2) 0%, rgba(11, 15, 25, 0.95) 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 24px;
+  transition: background 0.3s ease;
+}
+
+/* Animated Gradient Border Cards */
+.gradient-border-card {
+  position: relative;
+  border-radius: var(--radius-lg, 20px);
+  background: #111827;
+  padding: 1px;
+  overflow: hidden;
+}
+
+.gradient-border-card::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(135deg, #4f46e5, #06b6d4, #8b5cf6, #10b981);
+  background-size: 300% 300%;
+  animation: rotateGradient 6s ease infinite;
+  z-index: 0;
+  border-radius: inherit;
+}
+
+.gradient-border-card-inner {
+  position: relative;
+  z-index: 1;
+  background: #111827;
+  border-radius: calc(var(--radius-lg, 20px) - 1px);
+  padding: 32px;
+}
+
+/* Micro-interaction Classes */
+.animate-float {
+  animation: floatSlow 6s ease-in-out infinite;
+}
+
+.animate-float-reverse {
+  animation: floatReverse 7s ease-in-out infinite;
+}
+
+/* Shimmer overlay for premium buttons */
+.shimmer-btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer-btn::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.3) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: translateX(-150%) skewX(-20deg);
+  transition: transform 0.6s ease;
+}
+
+.shimmer-btn:hover::after {
+  animation: shimmerWave 0.8s ease forwards;
+}
+
+/* Card Hover Elevation */
+.interactive-card {
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.interactive-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.5), 0 0 25px 0 rgba(79, 70, 229, 0.25);
+}
+
+/* Smooth Focus States for WCAG Accessibility */
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+  outline: 2px solid var(--accent-cyan, #06B6D4) !important;
+  outline-offset: 3px !important;
+}
+
+/* Reduced Motion Respect */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

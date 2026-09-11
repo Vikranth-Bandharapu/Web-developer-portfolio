@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stackly — Senior Web Engineering & Digital Product Studio</title>
+  <meta name="description" content="Stackly builds high-performance SaaS applications, cloud architectures, and bespoke digital products for global enterprises and ambitious scale-ups.">
+  <meta name="keywords" content="web developer, software architecture, SaaS dashboard, cloud infrastructure, senior UI UX designer, enterprise web applications">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- FontAwesome 6 Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- AOS Animation Library CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
+
+  <!-- Core CSS Systems -->
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="animations.css">
+</head>
+<body>
+
+  <!-- 1. NAVIGATION HEADER -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="logo-brand">
+        <img src="assets/logo.webp" alt="Stackly Logo" class="logo-image">
+      </a>
+
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link active">Home</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="services.html" class="nav-link">Services</a></li>
+          <li><a href="projects.html" class="nav-link">Projects</a></li>
+          <li><a href="blog.html" class="nav-link">Blog</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="login.html" class="btn btn-secondary">Login</a>
+        <a href="signup.html" class="btn btn-primary shimmer-btn">Get Started</a>
+        <button class="mobile-toggle" aria-label="Open Navigation Drawer"><i class="fa-solid fa-bars-staggered"></i></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MOBILE NAVIGATION DRAWER -->
+  <div class="drawer-backdrop"></div>
+  <aside class="mobile-drawer">
+    <div>
+      <div class="drawer-header">
+        <a href="index.html" class="logo-brand">
+          <img src="assets/logo.webp" alt="Stackly Logo" class="logo-image">
+        </a>
+        <button class="drawer-close" aria-label="Close Drawer"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+
+      <ul class="drawer-nav-links">
+        <li><a href="index.html" class="drawer-nav-link active"><i class="fa-solid fa-house"></i> Home</a></li>
+        <li><a href="about.html" class="drawer-nav-link"><i class="fa-solid fa-circle-info"></i> About</a></li>
+        <li><a href="services.html" class="drawer-nav-link"><i class="fa-solid fa-cubes"></i> Services</a></li>
+        <li><a href="projects.html" class="drawer-nav-link"><i class="fa-solid fa-folder-open"></i> Projects</a></li>
+        <li><a href="blog.html" class="drawer-nav-link"><i class="fa-solid fa-newspaper"></i> Blog</a></li>
+        <li><a href="contact.html" class="drawer-nav-link"><i class="fa-solid fa-paper-plane"></i> Contact</a></li>
+      </ul>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--border-dark);">
+      <a href="login.html" class="btn btn-secondary" style="width: 100%; justify-content: center;"><i class="fa-solid fa-right-to-bracket"></i> Login</a>
+      <a href="signup.html" class="btn btn-primary shimmer-btn" style="width: 100%; justify-content: center;"><i class="fa-solid fa-user-plus"></i> Get Started</a>
+    </div>
+  </aside>
+
+  <main>
+    <!-- 2. HERO SECTION -->
+    <section class="hero-wrapper section-dark bg-grid-pattern" style="position: relative;">
+      <div class="ambient-orb orb-indigo" style="top: -100px; left: -100px;"></div>
+      <div class="ambient-orb orb-cyan" style="bottom: -50px; right: -50px;"></div>
+
+      <div class="container" style="position: relative; z-index: 2;">
+        <div class="hero-grid">
+          <div class="hero-content">
+            <span class="badge-tag" data-aos="fade-down" data-aos-delay="100"><i class="fa-solid fa-bolt"></i> Next-Gen Engineering Studio</span>
+            <h1 class="text-gradient" data-aos="fade-right" data-aos-delay="200">We Craft Senior-Grade Digital Products & SaaS Ecosystems</h1>
+            <p data-aos="fade-right" data-aos-delay="300">Transforming complex technical challenges into frictionless, high-converting web architectures. Designed for speed, scale, and enterprise-grade visual storytelling.</p>
+            <div class="hero-actions" data-aos="zoom-in-up" data-aos-delay="400">
+              <a href="404.html" class="btn btn-primary shimmer-btn"><i class="fa-solid fa-rocket"></i> Explore Work</a>
+              <a href="dashboard.html" class="btn btn-secondary"><i class="fa-solid fa-play"></i> View Live SaaS Demo</a>
+            </div>
+          </div>
+
+          <div class="hero-visual" data-aos="zoom-in-left" data-aos-delay="300" data-aos-duration="1000">
+            <!-- Floating Badge 1 -->
+            <div class="floating-badge floating-badge-1 animate-float" data-aos="fade-down" data-aos-delay="500">
+              <div style="background: rgba(16, 185, 129, 0.25); color: #10b981; padding: 10px; border-radius: 12px;">
+                <i class="fa-solid fa-shield-halved"></i>
+              </div>
+              <div>
+                <div style="font-size: 0.8rem; color: #9ca3af;">Security Rating</div>
+                <div style="font-weight: 700; color: #ffffff;">99.99% SOC-2 Ready</div>
+              </div>
+            </div>
+
+            <!-- Screen Mockup -->
+            <div class="hero-screen-mockup interactive-card" data-aos="flip-left" data-aos-delay="400">
+              <div class="mockup-header">
+                <span class="dot dot-red"></span>
+                <span class="dot dot-yellow"></span>
+                <span class="dot dot-green"></span>
+                <span style="font-size: 0.75rem; color: #9ca3af; margin-left: 12px;">stackly-core-engine // v4.2.0</span>
+              </div>
+              
+              <div style="position: relative; height: 280px; overflow: hidden;">
+                <img src="assets/hero_tech_mesh.webp" alt="Stackly Tech Interface Mesh" style="width: 100%; height: 100%; object-fit: cover;">
+                <div style="position: absolute; inset: 0; background: linear-gradient(180deg, transparent 50%, rgba(15, 23, 42, 0.95) 100%);"></div>
+              </div>
+
+              <div class="mockup-body" style="background: #0f172a; padding: 20px;">
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
+                  <span style="font-weight: 600; color: #a5b4fc;"><span class="card-status-dot"></span>Cluster Velocity</span>
+                  <span style="color: #06b6d4; font-weight: 700;">+284% Latency Reduction</span>
+                </div>
+                <div style="background: #1f2937; height: 10px; border-radius: 6px; overflow: hidden;">
+                  <div style="width: 88%; height: 100%; background: linear-gradient(90deg, #4f46e5, #06b6d4);"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Floating Badge 2 -->
+            <div class="floating-badge floating-badge-2 animate-float-reverse" data-aos="fade-up" data-aos-delay="600">
+              <div style="background: rgba(6, 182, 212, 0.25); color: #06b6d4; padding: 10px; border-radius: 12px;">
+                <i class="fa-solid fa-chart-line"></i>
+              </div>
+              <div>
+                <div style="font-size: 0.8rem; color: #9ca3af;">Global ARR Impact</div>
+                <div style="font-weight: 700; color: #ffffff;">+$14.2M Generated</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. BRAND WALL & TRUST INDICATORS -->
+    <section class="section-dark-alt bg-line-pattern" style="padding: 40px 0; border-top: 1px solid var(--border-dark); border-bottom: 1px solid var(--border-dark);">
+      <div class="container">
+        <p style="text-align: center; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-dark-muted); margin-bottom: 24px;" data-aos="fade-down">Trusted by Tech Pioneers & High-Growth Unicorns</p>
+        <div style="display: flex; align-items: center; justify-content: space-around; flex-wrap: wrap; gap: 32px; opacity: 0.85;">
+          <span style="font-size: 1.4rem; font-weight: 800; font-family: var(--font-heading); color: #ffffff;" data-aos="zoom-in" data-aos-delay="100"><i class="fa-brands fa-aws"></i> CLOUDSTACK</span>
+          <span style="font-size: 1.4rem; font-weight: 800; font-family: var(--font-heading); color: #ffffff;" data-aos="zoom-in" data-aos-delay="200"><i class="fa-brands fa-stripe"></i> PAYFLOW</span>
+          <span style="font-size: 1.4rem; font-weight: 800; font-family: var(--font-heading); color: #ffffff;" data-aos="zoom-in" data-aos-delay="300"><i class="fa-brands fa-docker"></i> NEXUS DEVOPS</span>
+          <span style="font-size: 1.4rem; font-weight: 800; font-family: var(--font-heading); color: #ffffff;" data-aos="zoom-in" data-aos-delay="400"><i class="fa-brands fa-github"></i> CORE ENGINE</span>
+          <span style="font-size: 1.4rem; font-weight: 800; font-family: var(--font-heading); color: #ffffff;" data-aos="zoom-in" data-aos-delay="500"><i class="fa-solid fa-brain"></i> CYBERMIND AI</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. LUXURY GRADIENT BENTO GRID MATRIX -->
+    <section class="section-tinted-indigo" style="position: relative;">
+      <div class="ambient-orb orb-violet" style="top: 20%; right: 0;"></div>
+
+      <div class="container" style="position: relative; z-index: 2;">
+        <div class="section-header" data-aos="fade-up">
+          <span class="badge-tag badge-cyan">Full-Stack Capabilities</span>
+          <h2 class="section-title">Architected for Speed. Engineered for Scale.</h2>
+          <p class="section-subtitle">Every system is custom-crafted to meet high-concurrency client demands with senior product design precision.</p>
+        </div>
+
+        <div class="bento-grid">
+          <!-- Card 1: Cloud Infra -->
+          <div class="bento-col-8" data-aos="fade-right" data-aos-delay="100">
+            <div class="gradient-border-card interactive-card">
+              <div class="gradient-border-card-inner">
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px;">
+                  <div class="bento-icon-wrapper bento-icon-cyan"><i class="fa-solid fa-server"></i></div>
+                  <span class="badge-tag badge-emerald"><span class="card-status-dot"></span>Active Cluster</span>
+                </div>
+                <h3 class="bento-card-title">High-Scale Cloud Architecture & Microservices</h3>
+                <p class="bento-card-text">Containerized Kubernetes clusters, GraphQL API gateways, and distributed cloud databases engineered to process millions of concurrent transactions with zero downtime.</p>
+                <div style="margin-top: 24px; display: flex; gap: 10px; flex-wrap: wrap;">
+                  <span class="badge-tag" style="font-size: 0.75rem;">Kubernetes</span>
+                  <span class="badge-tag" style="font-size: 0.75rem;">Go & Node.js</span>
+                  <span class="badge-tag" style="font-size: 0.75rem;">Redis Cache</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2: UI/UX Craft -->
+          <div class="bento-card bento-col-4 interactive-card" data-aos="fade-left" data-aos-delay="200">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px;">
+              <div class="bento-icon-wrapper"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+              <span class="badge-tag">Design System</span>
+            </div>
+            <div>
+              <h3 class="bento-card-title">Design Token UI/UX & Micro-Interactions</h3>
+              <p class="bento-card-text">Design systems built from scratch with WCAG AAA contrast accessibility, dark mode tokens, and fluid 60fps animations.</p>
+            </div>
+          </div>
+
+          <!-- Card 3: AI Engine -->
+          <div class="bento-card bento-col-4 interactive-card" data-aos="fade-right" data-aos-delay="300">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px;">
+              <div class="bento-icon-wrapper"><i class="fa-solid fa-brain"></i></div>
+              <span class="badge-tag badge-cyan">Vector Search</span>
+            </div>
+            <div>
+              <h3 class="bento-card-title">AI Engine Integration & Predictive Analytics</h3>
+              <p class="bento-card-text">Embed LLMs, vector search databases, and automated workflow pipelines directly into your SaaS product dashboard.</p>
+            </div>
+          </div>
+
+          <!-- Card 4: Cybersecurity -->
+          <div class="bento-card bento-col-8 interactive-card" data-aos="fade-left" data-aos-delay="400">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px;">
+              <div class="bento-icon-wrapper bento-icon-cyan"><i class="fa-solid fa-shield-cat"></i></div>
+              <span class="badge-tag badge-emerald"><span class="card-status-dot"></span>SOC-2 Type II</span>
+            </div>
+            <div>
+              <h3 class="bento-card-title">Zero-Trust Cybersecurity & Automated CI/CD</h3>
+              <p class="bento-card-text">Automated regression testing, vulnerability scanning, SOC-2 compliant encryption pipelines, and instantaneous failover deployment strategies.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. INTERACTIVE CODE & SHOWCASE -->
+    <section class="section-dark">
+      <div class="container">
+        <div class="hero-grid" style="align-items: center;">
+          <div data-aos="fade-right">
+            <span class="badge-tag"><i class="fa-solid fa-code"></i> Clean Code Architecture</span>
+            <h2 class="section-title" style="margin-top: 16px;">Production-Ready Code Quality Without Compromise</h2>
+            <p style="color: var(--text-dark-secondary); margin-bottom: 24px;">Our engineering team follows strict modular standards, comprehensive unit coverage, and automated linting. No messy hacks, no legacy debt.</p>
+            
+            <ul style="list-style: none; display: flex; flex-direction: column; gap: 16px;">
+              <li style="display: flex; align-items: center; gap: 12px;">
+                <i class="fa-solid fa-circle-check" style="color: var(--accent-cyan); font-size: 1.2rem;"></i>
+                <span>Strict TypeScript / ES6+ modular structures</span>
+              </li>
+              <li style="display: flex; align-items: center; gap: 12px;">
+                <i class="fa-solid fa-circle-check" style="color: var(--accent-cyan); font-size: 1.2rem;"></i>
+                <span>Automated End-to-End Cypress and Jest test suites</span>
+              </li>
+              <li style="display: flex; align-items: center; gap: 12px;">
+                <i class="fa-solid fa-circle-check" style="color: var(--accent-cyan); font-size: 1.2rem;"></i>
+                <span>Zero console errors and fast 3s initial load budget</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="hero-screen-mockup" data-aos="fade-left" data-aos-delay="200">
+            <div class="mockup-header">
+              <span class="dot dot-red"></span>
+              <span class="dot dot-yellow"></span>
+              <span class="dot dot-green"></span>
+              <span style="font-size: 0.75rem; color: #9ca3af; margin-left: 12px;">StacklyEngine.js — ES6+ Module</span>
+            </div>
+            <pre style="padding: 24px; font-family: monospace; font-size: 0.9rem; color: #e2e8f0; overflow-x: auto; line-height: 1.6;">
+<span style="color: #c084fc;">import</span> { Cluster, MicroService } <span style="color: #c084fc;">from</span> <span style="color: #67e8f9;">'@stackly/core'</span>;
+
+<span style="color: #818cf8;">export class</span> <span style="color: #facc15;">EnterpriseApp</span> {
+  <span style="color: #c084fc;">async</span> <span style="color: #60a5fa;">deployCluster</span>(config) {
+    <span style="color: #c084fc;">const</span> node = <span style="color: #c084fc;">await</span> Cluster.<span style="color: #60a5fa;">initialize</span>({
+      region: <span style="color: #67e8f9;">'us-east-1'</span>,
+      encryption: <span style="color: #67e8f9;">'AES-256-GCM'</span>,
+      autoscaling: <span style="color: #34d399;">true</span>
+    });
+    
+    <span style="color: #34d399;">console</span>.<span style="color: #60a5fa;">log</span>(<span style="color: #67e8f9;">`[Stackly] Node ${node.id} Live!`</span>);
+    <span style="color: #c084fc;">return</span> node.<span style="color: #60a5fa;">status</span>();
+  }
+}</pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. CASE STUDIES -->
+    <section class="section-glass" style="position: relative;">
+      <div class="ambient-orb orb-cyan" style="bottom: 10px; left: 10px;"></div>
+
+      <div class="container" style="position: relative; z-index: 2;">
+        <div class="section-header" data-aos="fade-up">
+          <span class="badge-tag badge-cyan">Featured Work</span>
+          <h2 class="section-title">Proven Impact Across Industry Leaders</h2>
+          <p class="section-subtitle">Explore selected case studies demonstrating technical depth, aesthetic refinement, and measurable enterprise results.</p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;">
+          <!-- Project 1 -->
+          <div class="image-card-wrapper interactive-card" data-aos="fade-up" data-aos-delay="100">
+            <img src="assets/project_fintech.webp" alt="FinTech Trading Engine Analytics">
+            <div class="image-card-overlay">
+              <span class="badge-tag badge-emerald" style="align-self: flex-start; margin-bottom: 12px;">SaaS Platform</span>
+              <h3 style="font-size: 1.3rem; margin-bottom: 8px; color: #fff;">FinTech Real-Time Analytics Portal</h3>
+              <p style="color: #cbd5e1; font-size: 0.85rem; margin-bottom: 14px;">Redesigned a high-frequency trading platform UI with dynamic websocket charts.</p>
+              <div style="font-weight: 700; color: #34d399; font-size: 0.9rem; margin-bottom: 14px;"><i class="fa-solid fa-arrow-trend-up"></i> +340% Conversions</div>
+              <a href="404.html" class="btn btn-secondary" style="font-size: 0.8rem; padding: 6px 14px; align-self: flex-start;">Read Case Study</a>
+            </div>
+          </div>
+
+          <!-- Project 2 -->
+          <div class="image-card-wrapper interactive-card" data-aos="fade-up" data-aos-delay="200">
+            <img src="assets/project_ai_copilot.webp" alt="AI Copilot Neural Mesh">
+            <div class="image-card-overlay">
+              <span class="badge-tag badge-cyan" style="align-self: flex-start; margin-bottom: 12px;">AI Engine</span>
+              <h3 style="font-size: 1.3rem; margin-bottom: 8px; color: #fff;">CyberMind Copilot Vector Platform</h3>
+              <p style="color: #cbd5e1; font-size: 0.85rem; margin-bottom: 14px;">Built an AI document intelligence suite using vector embeddings and semantic search.</p>
+              <div style="font-weight: 700; color: #67e8f9; font-size: 0.9rem; margin-bottom: 14px;"><i class="fa-solid fa-clock"></i> 85% Time Savings</div>
+              <a href="404.html" class="btn btn-secondary" style="font-size: 0.8rem; padding: 6px 14px; align-self: flex-start;">Read Case Study</a>
+            </div>
+          </div>
+
+          <!-- Project 3 -->
+          <div class="image-card-wrapper interactive-card" data-aos="fade-up" data-aos-delay="300">
+            <img src="assets/project_cloud_mesh.webp" alt="Global Cloud Mesh Infrastructure">
+            <div class="image-card-overlay">
+              <span class="badge-tag" style="align-self: flex-start; margin-bottom: 12px;">Cloud Mesh</span>
+              <h3 style="font-size: 1.3rem; margin-bottom: 8px; color: #fff;">Global Logistics Kubernetes Mesh</h3>
+              <p style="color: #cbd5e1; font-size: 0.85rem; margin-bottom: 14px;">Migrated monolithic logistics to a resilient multi-region Kubernetes cloud mesh.</p>
+              <div style="font-weight: 700; color: #a5b4fc; font-size: 0.9rem; margin-bottom: 14px;"><i class="fa-solid fa-shield-check"></i> Zero Security Breaches</div>
+              <a href="404.html" class="btn btn-secondary" style="font-size: 0.8rem; padding: 6px 14px; align-self: flex-start;">Read Case Study</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. INTERACTIVE ROI CALCULATOR -->
+    <section class="section-tinted-cyan">
+      <div class="container">
+        <div class="section-header" data-aos="fade-up">
+          <span class="badge-tag">ROI Estimator</span>
+          <h2 class="section-title">Calculate Your Development Efficiency</h2>
+        </div>
+
+        <div class="bento-card" data-aos="zoom-in" style="max-width: 800px; margin: 0 auto; border-color: var(--border-dark-highlight);">
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: center;">
+            <div>
+              <div style="margin-bottom: 24px;">
+                <label style="font-weight: 600; display: block; margin-bottom: 8px;">Engineering Pod Size: <span id="val-developers" style="color: var(--accent-cyan); font-weight: 700;">4</span> Developers</label>
+                <input type="range" id="calc-developers" min="1" max="15" value="4" style="width: 100%; accent-color: var(--accent-cyan);">
+              </div>
+
+              <div>
+                <label style="font-weight: 600; display: block; margin-bottom: 8px;">Project Timeline: <span id="val-months" style="color: var(--accent-cyan); font-weight: 700;">6</span> Months</label>
+                <input type="range" id="calc-months" min="2" max="12" value="6" style="width: 100%; accent-color: var(--accent-cyan);">
+              </div>
+            </div>
+
+            <div style="background: rgba(6, 182, 212, 0.12); border: 1px solid rgba(6, 182, 212, 0.3); border-radius: var(--radius-md); padding: 24px; text-align: center;">
+              <div style="font-size: 0.9rem; color: #9ca3af;">Estimated Stackly Delivery Cost</div>
+              <div id="calc-cost" style="font-size: 2.2rem; font-weight: 800; color: #ffffff; margin: 8px 0;">$126,000</div>
+              <div style="font-size: 0.9rem; color: #34d399; font-weight: 600;">You Save Approx: <span id="calc-savings">$174,000</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FULL-WIDTH CTA BANNER -->
+    <section class="section-gradient-banner">
+      <div class="container" style="text-align: center; position: relative; z-index: 2;">
+        <h2 style="font-size: clamp(2.2rem, 4vw, 3.4rem); margin-bottom: 20px;">Ready to Experience Senior-Level Product Quality?</h2>
+        <p style="font-size: 1.2rem; max-width: 680px; margin: 0 auto 36px auto; opacity: 0.9;">Book a consultation with our principal architects and transform your web presence today.</p>
+        <a href="404.html" class="btn btn-cyan shimmer-btn"><i class="fa-solid fa-paper-plane"></i> Schedule Project Discovery</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- 1. BRAND COLUMN -->
+        <div class="footer-brand">
+          <a href="index.html" class="logo-brand">
+            <img src="assets/logo.webp" alt="Stackly Logo" class="logo-image">
+          </a>
+          <p>The intelligent enterprise management platform built for scale.</p>
+          <div class="footer-social-links">
+            <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn" class="social-circle-icon"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://twitter.com" target="_blank" aria-label="Twitter" class="social-circle-icon"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="https://youtube.com" target="_blank" aria-label="YouTube" class="social-circle-icon"><i class="fa-brands fa-youtube"></i></a>
+            <a href="https://github.com" target="_blank" aria-label="GitHub" class="social-circle-icon"><i class="fa-brands fa-github"></i></a>
+          </div>
+        </div>
+
+        <!-- 2. QUICK LINKS -->
+        <div>
+          <h4 class="footer-title">Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- 3. SUPPORT -->
+        <div>
+          <h4 class="footer-title">Support</h4>
+          <ul class="footer-links">
+            <li><a href="404.html">Help Center</a></li>
+            <li><a href="404.html">FAQ</a></li>
+            <li><a href="404.html">Documentation</a></li>
+            <li><a href="404.html">Privacy Policy</a></li>
+            <li><a href="404.html">Terms of Service</a></li>
+          </ul>
+        </div>
+
+        <!-- 4. CONNECT -->
+        <div>
+          <h4 class="footer-title">Connect</h4>
+          <ul class="footer-contact-list">
+            <li class="footer-contact-item">
+              <i class="fa-solid fa-location-dot contact-icon"></i>
+              <div>
+                <strong>Office Address:</strong>
+                <span>OMR IT Expressway, Chennai, Tamil Nadu, India</span>
+              </div>
+            </li>
+            <li class="footer-contact-item">
+              <i class="fa-solid fa-phone contact-icon"></i>
+              <div>
+                <strong>Phone:</strong>
+                <span>+91 98765 43210</span>
+              </div>
+            </li>
+            <li class="footer-contact-item">
+              <i class="fa-solid fa-envelope contact-icon"></i>
+              <div>
+                <strong>Sales Email:</strong>
+                <span>info@stackly.com</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 Stackly Web Engineering Studio. All rights reserved.</div>
+        <div style="display: flex; gap: 20px;">
+          <a href="404.html">Privacy Policy</a>
+          <a href="404.html">Terms of Service</a>
+          <a href="404.html">Security Protocol</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- AOS, GSAP & Core JS Scripts -->
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="main.js"></script>
+  <script src="3d-effects.js"></script>
+</body>
+</html>

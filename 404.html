@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 — Resource Not Found | Stackly</title>
+  <meta name="description" content="The requested page or resource could not be located on the Stackly server cluster.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- FontAwesome 6 Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- AOS Animation Library CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
+
+  <!-- Core CSS Systems -->
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="animations.css">
+</head>
+<body style="background: #070a12; min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 40px 24px; text-align: center;">
+
+  <div data-aos="zoom-in" data-aos-duration="800" style="max-width: 680px; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid var(--border-dark); border-radius: var(--radius-lg); padding: 60px 40px; box-shadow: 0 25px 60px rgba(0,0,0,0.8); position: relative; z-index: 2;">
+    
+    <!-- Custom SVG 404 Visual Illustration -->
+    <div style="width: 120px; height: 120px; margin: 0 auto 30px auto; background: rgba(79, 70, 229, 0.12); border: 1px solid rgba(79, 70, 229, 0.3); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--accent-cyan); font-size: 3.5rem;" class="animate-float" data-aos="flip-up" data-aos-delay="200">
+      <i class="fa-solid fa-compass-drafting"></i>
+    </div>
+
+    <div style="font-size: 5rem; font-weight: 800; font-family: var(--font-heading); color: #ffffff; line-height: 1; margin-bottom: 12px;" class="text-gradient" data-aos="fade-up" data-aos-delay="300">404</div>
+
+    <h1 style="font-size: 1.8rem; margin-bottom: 16px;" data-aos="fade-up" data-aos-delay="400">Cluster Route Not Found</h1>
+    <p style="color: var(--text-dark-secondary); font-size: 1.05rem; line-height: 1.6; margin-bottom: 32px;" data-aos="fade-up" data-aos-delay="500">
+      The page, document, or endpoint you are looking for has been moved, renamed, or does not exist on our production server mesh.
+    </p>
+
+    <!-- Search Fallback Input -->
+    <div style="margin-bottom: 32px; display: flex; justify-content: center;" data-aos="fade-up" data-aos-delay="600">
+      <div style="position: relative; width: 100%; max-width: 400px;">
+        <i class="fa-solid fa-magnifying-glass" style="position: absolute; left: 16px; top: 50%; transform: translateY(-50%); color: #6b7280;"></i>
+        <input type="text" placeholder="Search documentation or public pages..." style="width: 100%; padding: 12px 16px 12px 46px; background: rgba(255,255,255,0.05); border: 1px solid var(--border-dark); border-radius: 10px; color: #fff; font-size: 0.95rem;">
+      </div>
+    </div>
+
+    <!-- Action Buttons -->
+    <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;" data-aos="fade-up" data-aos-delay="700">
+      <a href="index.html" class="btn btn-primary shimmer-btn"><i class="fa-solid fa-house"></i> Return to Homepage</a>
+      <button onclick="history.back()" class="btn btn-secondary"><i class="fa-solid fa-arrow-left"></i> Go Back Previous Page</button>
+    </div>
+
+    <div style="margin-top: 40px; font-size: 0.85rem; color: var(--text-dark-muted);">
+      Stackly System Engine // Error Code 404_PAGE_NOT_FOUND
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script src="main.js"></script>
+  <script src="3d-effects.js"></script>
+</body>
+</html>

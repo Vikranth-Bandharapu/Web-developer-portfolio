@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Account — Stackly SaaS</title>
+  <meta name="description" content="Register for a Stackly enterprise workspace account.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- FontAwesome 6 Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- AOS Animation Library CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
+
+  <!-- Core CSS Systems -->
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="animations.css">
+</head>
+<body style="background: #070a12; min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 40px 0;">
+
+  <div data-aos="zoom-in" data-aos-duration="850" class="auth-card-wrapper" style="max-width: 900px;">
+    
+    <!-- Left Column: Value Prop -->
+    <div data-aos="fade-right" data-aos-delay="150" class="auth-col-left" style="background: linear-gradient(135deg, #0f152e 0%, #111827 100%); display: flex; flex-direction: column; justify-content: space-between; border-right: 1px solid var(--border-dark);">
+      <div>
+        <a href="index.html" class="logo-brand" style="margin-bottom: 30px;">
+          <img src="assets/logo.webp" alt="Stackly Logo" class="logo-image">
+        </a>
+
+        <h2 style="font-size: 2rem; margin-bottom: 16px;" class="text-gradient" data-aos="fade-up" data-aos-delay="250">Join 140+ Shipped Enterprise Pods</h2>
+        <p style="color: var(--text-dark-secondary); font-size: 0.95rem; line-height: 1.6;" data-aos="fade-up" data-aos-delay="350">
+          Deploy high-speed SaaS platforms with automated CI/CD security audits and instant dashboard analytics.
+        </p>
+      </div>
+
+      <div style="font-size: 0.85rem; color: #9ca3af; border-top: 1px solid var(--border-dark); padding-top: 20px;" data-aos="fade-up" data-aos-delay="450">
+        <i class="fa-solid fa-lock" style="color: var(--accent-emerald);"></i> 256-Bit SSL Encrypted Registration Pipeline
+      </div>
+    </div>
+
+    <!-- Right Column: Registration Form -->
+    <div data-aos="fade-left" data-aos-delay="200" class="auth-col-right">
+      <h3 style="font-size: 1.5rem; margin-bottom: 6px;">Create Account</h3>
+      <p style="color: var(--text-dark-secondary); font-size: 0.85rem; margin-bottom: 20px;">Register your organization to access developer workspace tools.</p>
+
+      <form id="signup-form">
+        <div style="margin-bottom: 14px;">
+          <label style="font-size: 0.85rem; font-weight: 600; display: block; margin-bottom: 4px;">Full Name *</label>
+          <input type="text" id="signup-name" placeholder="Elena Rostova" required style="width: 100%; padding: 10px 14px; background: rgba(255,255,255,0.05); border: 1px solid var(--border-dark); border-radius: 8px; color: #fff; font-size: 0.9rem;">
+          <div id="signup-name-error"></div>
+        </div>
+
+        <div style="margin-bottom: 14px;">
+          <label style="font-size: 0.85rem; font-weight: 600; display: block; margin-bottom: 4px;">Business Email *</label>
+          <input type="email" id="signup-email" placeholder="elena@enterprise-tech.io" required style="width: 100%; padding: 10px 14px; background: rgba(255,255,255,0.05); border: 1px solid var(--border-dark); border-radius: 8px; color: #fff; font-size: 0.9rem;">
+          <div id="signup-email-error"></div>
+        </div>
+
+        <div style="margin-bottom: 14px;">
+          <label style="font-size: 0.85rem; font-weight: 600; display: block; margin-bottom: 4px;">Password *</label>
+          <input type="password" id="signup-password" placeholder="Min 8 chars (1 upper, 1 lower, 1 num, 1 spec)" required style="width: 100%; padding: 10px 14px; background: rgba(255,255,255,0.05); border: 1px solid var(--border-dark); border-radius: 8px; color: #fff; font-size: 0.9rem;">
+          <!-- Password Strength Meter -->
+          <div style="margin-top: 6px; background: rgba(255,255,255,0.1); height: 4px; border-radius: 2px; overflow: hidden;">
+            <div id="password-strength-bar" style="width: 0%; height: 100%; transition: width 0.3s ease, background-color 0.3s ease;"></div>
+          </div>
+          <div id="password-strength-text" style="font-size: 0.75rem; color: #9ca3af; margin-top: 4px;">Strength: Required</div>
+          <div id="signup-password-error"></div>
+        </div>
+
+        <div style="margin-bottom: 16px;">
+          <label style="font-size: 0.85rem; font-weight: 600; display: block; margin-bottom: 4px;">Confirm Password *</label>
+          <input type="password" id="signup-confirm-password" placeholder="Re-enter password..." required style="width: 100%; padding: 10px 14px; background: rgba(255,255,255,0.05); border: 1px solid var(--border-dark); border-radius: 8px; color: #fff; font-size: 0.9rem;">
+          <div id="signup-confirm-error"></div>
+        </div>
+
+        <div style="margin-bottom: 20px; display: flex; flex-direction: column; gap: 6px;">
+          <div style="display: flex; align-items: flex-start; gap: 10px;">
+            <input type="checkbox" id="signup-terms" style="margin-top: 3px; accent-color: var(--accent-cyan);">
+            <label for="signup-terms" style="font-size: 0.8rem; color: var(--text-dark-secondary);">
+              I agree to the <a href="404.html" style="color: var(--accent-cyan);">Terms of Service</a> and Privacy Policy.
+            </label>
+          </div>
+          <div id="signup-terms-error"></div>
+        </div>
+
+        <button type="submit" class="btn btn-primary shimmer-btn" style="width: 100%;"><i class="fa-solid fa-user-plus"></i> Complete Registration</button>
+      </form>
+
+      <div style="margin-top: 20px; text-align: center; font-size: 0.85rem; color: var(--text-dark-secondary);">
+        Already registered? <a href="login.html" style="color: var(--accent-cyan); font-weight: 600;">Sign In</a>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script src="main.js"></script>
+  <script src="auth.js"></script>
+  <script src="3d-effects.js"></script>
+</body>
+</html>

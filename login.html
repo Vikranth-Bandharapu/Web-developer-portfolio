@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login to Workspace — Stackly SaaS</title>
+  <meta name="description" content="Sign in to your Stackly client, developer, or administrative workspace dashboard.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- FontAwesome 6 Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- AOS Animation Library CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
+
+  <!-- Core CSS Systems -->
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="animations.css">
+</head>
+<body style="background: #070a12; min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 24px 0;">
+
+  <div data-aos="zoom-in" data-aos-duration="850" class="auth-single-card" style="width: 92%; max-width: 460px; margin: 0 auto; background: rgba(15, 23, 42, 0.88); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid var(--border-dark); border-radius: var(--radius-lg); padding: 36px 28px; box-shadow: 0 25px 60px rgba(0,0,0,0.85); position: relative; z-index: 2;">
+    
+    <!-- Header & Brand Logo -->
+    <div style="text-align: center; margin-bottom: 24px;">
+      <a href="index.html" class="logo-brand" style="display: inline-block; margin-bottom: 16px;">
+        <img src="assets/logo.webp" alt="Stackly Logo" class="logo-image" style="height: 38px;">
+      </a>
+      <h2 style="font-size: 1.6rem; font-weight: 700; margin-bottom: 6px;" class="text-gradient">Sign In to Workspace</h2>
+      <p style="color: var(--text-dark-secondary); font-size: 0.88rem;">Choose target workspace role and authenticate.</p>
+    </div>
+
+    <!-- Role Picker Buttons -->
+    <div style="margin-bottom: 20px;">
+      <label style="font-size: 0.85rem; font-weight: 600; display: block; margin-bottom: 10px; color: #a5b4fc;"><i class="fa-solid fa-user-gear"></i> Select Role</label>
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <button type="button" class="role-select-btn active" data-role="Client"><i class="fa-solid fa-chart-pie"></i> Dashboard 1 (Client)</button>
+        <button type="button" class="role-select-btn" data-role="Admin"><i class="fa-solid fa-server"></i> Dashboard 2 (Admin)</button>
+      </div>
+      <input type="hidden" id="selected-role" value="Client">
+    </div>
+
+    <form id="login-form">
+      <div style="margin-bottom: 16px;">
+        <label style="font-size: 0.85rem; font-weight: 600; display: block; margin-bottom: 6px;">Business Email</label>
+        <input type="email" id="login-email" placeholder="name@company.com" required style="width: 100%; padding: 12px 16px; background: rgba(255,255,255,0.05); border: 1px solid var(--border-dark); border-radius: 10px; color: #fff; font-size: 0.95rem; box-sizing: border-box;">
+        <div id="login-email-error"></div>
+      </div>
+
+      <div style="margin-bottom: 20px;">
+        <label style="font-size: 0.85rem; font-weight: 600; display: block; margin-bottom: 6px;">Password</label>
+        <input type="password" id="login-password" placeholder="Enter your password" required style="width: 100%; padding: 12px 16px; background: rgba(255,255,255,0.05); border: 1px solid var(--border-dark); border-radius: 10px; color: #fff; font-size: 0.95rem; box-sizing: border-box;">
+        <div id="login-password-error"></div>
+      </div>
+
+      <!-- Single Primary Submit Button -->
+      <button type="submit" id="btn-login-submit" class="btn btn-primary shimmer-btn" style="width: 100%; justify-content: center;"><i class="fa-solid fa-right-to-bracket"></i> Sign In</button>
+    </form>
+
+    <!-- Universal Login Notice -->
+    <div style="background: rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.25); padding: 12px 14px; border-radius: var(--radius-md); margin-top: 20px; text-align: center;">
+      <div style="font-size: 0.78rem; font-weight: 700; color: #10b981; margin-bottom: 4px;"><i class="fa-solid fa-circle-check"></i> Universal Sign-In Enabled</div>
+      <div style="font-size: 0.75rem; color: #9ca3af; line-height: 1.4;">
+        Enter <strong style="color: #ffffff;">any email</strong> and <strong style="color: #ffffff;">any password</strong> to access the workspace.
+      </div>
+    </div>
+
+    <div style="margin-top: 20px; text-align: center; font-size: 0.88rem; color: var(--text-dark-secondary);">
+      Don't have an account? <a href="signup.html" style="color: var(--accent-cyan); font-weight: 600;">Sign Up Now</a>
+    </div>
+
+    <div style="margin-top: 14px; text-align: center; font-size: 0.85rem;">
+      <a href="index.html" style="color: #9ca3af;"><i class="fa-solid fa-arrow-left"></i> Back to Public Homepage</a>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script src="main.js"></script>
+  <script src="auth.js"></script>
+  <script src="3d-effects.js"></script>
+</body>
+</html>

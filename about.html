@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us & Engineering Craftsmanship — Stackly</title>
+  <meta name="description" content="Discover Stackly's engineering heritage, senior product leadership, global pods, security compliance standards, and open career roles.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- FontAwesome 6 Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- AOS Animation Library CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
+
+  <!-- Core CSS Systems -->
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="animations.css">
+</head>
+<body>
+
+  <!-- 1. NAVIGATION HEADER -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="logo-brand">
+        <img src="assets/logo.webp" alt="Stackly Logo" class="logo-image">
+      </a>
+
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="about.html" class="nav-link active">About</a></li>
+          <li><a href="services.html" class="nav-link">Services</a></li>
+          <li><a href="projects.html" class="nav-link">Projects</a></li>
+          <li><a href="blog.html" class="nav-link">Blog</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="login.html" class="btn btn-secondary">Login</a>
+        <a href="signup.html" class="btn btn-primary shimmer-btn">Get Started</a>
+        <button class="mobile-toggle" aria-label="Open Navigation Drawer"><i class="fa-solid fa-bars-staggered"></i></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MOBILE NAVIGATION DRAWER -->
+  <div class="drawer-backdrop"></div>
+  <aside class="mobile-drawer">
+    <div>
+      <div class="drawer-header">
+        <a href="index.html" class="logo-brand">
+          <img src="assets/logo.webp" alt="Stackly Logo" class="logo-image">
+        </a>
+        <button class="drawer-close" aria-label="Close Drawer"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+
+      <ul class="drawer-nav-links">
+        <li><a href="index.html" class="drawer-nav-link"><i class="fa-solid fa-house"></i> Home</a></li>
+        <li><a href="about.html" class="drawer-nav-link active"><i class="fa-solid fa-circle-info"></i> About</a></li>
+        <li><a href="services.html" class="drawer-nav-link"><i class="fa-solid fa-cubes"></i> Services</a></li>
+        <li><a href="projects.html" class="drawer-nav-link"><i class="fa-solid fa-folder-open"></i> Projects</a></li>
+        <li><a href="blog.html" class="drawer-nav-link"><i class="fa-solid fa-newspaper"></i> Blog</a></li>
+        <li><a href="contact.html" class="drawer-nav-link"><i class="fa-solid fa-paper-plane"></i> Contact</a></li>
+      </ul>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--border-dark);">
+      <a href="login.html" class="btn btn-secondary" style="width: 100%; justify-content: center;"><i class="fa-solid fa-right-to-bracket"></i> Login</a>
+      <a href="signup.html" class="btn btn-primary shimmer-btn" style="width: 100%; justify-content: center;"><i class="fa-solid fa-user-plus"></i> Get Started</a>
+    </div>
+  </aside>
+
+  <main>
+    <!-- 2. ABOUT HERO SECTION WITH AMBIENT ORB & GRID PATTERN -->
+    <section class="hero-wrapper section-dark bg-grid-pattern" style="position: relative;">
+      <div class="ambient-orb orb-indigo" style="top: -60px; left: -60px;"></div>
+      <div class="ambient-orb orb-cyan" style="bottom: -40px; right: -40px;"></div>
+
+      <div class="container" style="position: relative; z-index: 2;">
+        <div class="section-header text-left" data-aos="fade-right">
+          <span class="badge-tag"><i class="fa-solid fa-users"></i> Our Engineering Heritage</span>
+          <h1 class="text-gradient" style="font-size: clamp(2.6rem, 5vw, 4.2rem); margin-top: 16px;">Driven by Craftsmanship. Built for Technical Excellence.</h1>
+          <p style="font-size: 1.25rem; color: var(--text-dark-secondary); max-width: 820px;">Stackly was founded on a singular premise: modern enterprises deserve web applications that combine senior product design with resilient, zero-bloat engineering.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. MISSION & STORY SPLIT EDITORIAL SECTION -->
+    <section class="section-dark-alt bg-line-pattern">
+      <div class="container">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;">
+          <div data-aos="fade-right">
+            <span class="badge-tag badge-cyan">Our Philosophy</span>
+            <h2 class="section-title" style="margin-top: 16px;">We Reject Generic AI Templates & Superfluous Abstractions</h2>
+            <p style="color: var(--text-dark-secondary); font-size: 1.05rem; line-height: 1.7; margin-bottom: 24px;">
+              In an era dominated by automated boilerplates and copy-paste UI libraries, Stackly stands apart. Every line of code, every design token, and every micro-animation is built specifically for your business domain.
+            </p>
+            <p style="color: var(--text-dark-secondary); font-size: 1.05rem; line-height: 1.7;">
+              Our senior developers bring an average of 8+ years experience across high-concurrency micro-services, financial tech compliance, and custom design systems.
+            </p>
+          </div>
+
+          <div class="gradient-border-card interactive-card" data-aos="fade-left" data-aos-delay="200">
+            <div class="gradient-border-card-inner">
+              <div style="display: flex; flex-direction: column; gap: 20px;">
+                <div style="display: flex; align-items: center; gap: 16px;">
+                  <div style="background: rgba(79, 70, 229, 0.2); color: var(--accent-indigo); padding: 12px; border-radius: 12px; font-size: 1.3rem;"><i class="fa-solid fa-code"></i></div>
+                  <div>
+                    <h4 style="font-size: 1.1rem; color: #fff;">100% Bespoke Codebases</h4>
+                    <p style="color: var(--text-dark-secondary); font-size: 0.9rem;">Tailored architecture without dead dependencies or unmaintained plugins.</p>
+                  </div>
+                </div>
+
+                <div style="display: flex; align-items: center; gap: 16px;">
+                  <div style="background: rgba(6, 182, 212, 0.2); color: var(--accent-cyan); padding: 12px; border-radius: 12px; font-size: 1.3rem;"><i class="fa-solid fa-shield-halved"></i></div>
+                  <div>
+                    <h4 style="font-size: 1.1rem; color: #fff;">Enterprise Compliance Built-In</h4>
+                    <p style="color: var(--text-dark-secondary); font-size: 0.9rem;">SOC-2 Type II standards, WCAG AAA accessibility, and GDPR encryption.</p>
+                  </div>
+                </div>
+
+                <div style="display: flex; align-items: center; gap: 16px;">
+                  <div style="background: rgba(16, 185, 129, 0.2); color: var(--accent-emerald); padding: 12px; border-radius: 12px; font-size: 1.3rem;"><i class="fa-solid fa-gauge-high"></i></div>
+                  <div>
+                    <h4 style="font-size: 1.1rem; color: #fff;">Sub-Second Global Latency</h4>
+                    <p style="color: var(--text-dark-secondary); font-size: 0.9rem;">Optimized edge assets delivering 98+ Lighthouse scores across mobile & desktop.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. ENGINEERING VALUES & CODE ETHICS BENTO GRID -->
+    <section class="section-tinted-indigo" style="position: relative;">
+      <div class="ambient-orb orb-violet" style="top: 20%; left: -50px;"></div>
+
+      <div class="container" style="position: relative; z-index: 2;">
+        <div class="section-header" data-aos="fade-up">
+          <span class="badge-tag">Code Ethics</span>
+          <h2 class="section-title">Built on 4 Unforgiving Pillars</h2>
+          <p class="section-subtitle">Our engineering principles dictate every commit, pull request, and deployment release.</p>
+        </div>
+
+        <div class="bento-grid">
+          <div class="bento-card bento-col-3 interactive-card" data-aos="fade-up" data-aos-delay="100">
+            <div style="font-size: 2rem; color: var(--accent-cyan); margin-bottom: 16px;"><i class="fa-solid fa-code-compare"></i></div>
+            <h4 style="font-size: 1.15rem; margin-bottom: 8px;">Zero Technical Debt</h4>
+            <p style="color: var(--text-dark-secondary); font-size: 0.9rem;">Clean ES6+ JavaScript and modular CSS token setups ensure seamless future maintainability.</p>
+          </div>
+
+          <div class="bento-card bento-col-3 interactive-card" data-aos="fade-up" data-aos-delay="200">
+            <div style="font-size: 2rem; color: var(--accent-indigo); margin-bottom: 16px;"><i class="fa-solid fa-eye"></i></div>
+            <h4 style="font-size: 1.15rem; margin-bottom: 8px;">WCAG AAA Contrast</h4>
+            <p style="color: var(--text-dark-secondary); font-size: 0.9rem;">Accessible focus rings, screen reader landmarks, and touch targets across all viewports.</p>
+          </div>
+
+          <div class="bento-card bento-col-3 interactive-card" data-aos="fade-up" data-aos-delay="300">
+            <div style="font-size: 2rem; color: var(--accent-violet); margin-bottom: 16px;"><i class="fa-solid fa-bolt"></i></div>
+            <h4 style="font-size: 1.15rem; margin-bottom: 8px;">Speed Budgeting</h4>
+            <p style="color: var(--text-dark-secondary); font-size: 0.9rem;">Strict <100KB images and optimized bundle assets ensuring instant 3s page load performance.</p>
+          </div>
+
+          <div class="bento-card bento-col-3 interactive-card" data-aos="fade-up" data-aos-delay="400">
+            <div style="font-size: 2rem; color: var(--accent-emerald); margin-bottom: 16px;"><i class="fa-solid fa-lock"></i></div>
+            <h4 style="font-size: 1.15rem; margin-bottom: 8px;">Strict Data Hygiene</h4>
+            <p style="color: var(--text-dark-secondary); font-size: 0.9rem;">Client credentials and form inputs are strictly sanitized with zero plain-text local storage.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. COMPANY MILESTONES INTERACTIVE TIMELINE -->
+    <section class="section-dark">
+      <div class="container">
+        <div class="section-header" data-aos="fade-up">
+          <span class="badge-tag badge-cyan">Company Evolution</span>
+          <h2 class="section-title">Our Growth Journey</h2>
+          <p class="section-subtitle">Milestones that defined our position as a leader in bespoke web product development.</p>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 24px; max-width: 860px; margin: 0 auto;">
+          <div class="bento-card interactive-card" data-aos="fade-up" data-aos-delay="100">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+              <span style="font-weight: 800; color: var(--accent-cyan); font-size: 1.2rem;">2021 — Studio Inception</span>
+              <span class="badge-tag">Phase 1</span>
+            </div>
+            <p style="color: var(--text-dark-secondary);">Founded by former Silicon Valley principal architects with a vision to streamline complex cloud software development.</p>
+          </div>
+
+          <div class="bento-card interactive-card" data-aos="fade-up" data-aos-delay="200">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+              <span style="font-weight: 800; color: var(--accent-cyan); font-size: 1.2rem;">2023 — FinTech & SaaS Expansion</span>
+              <span class="badge-tag">Phase 2</span>
+            </div>
+            <p style="color: var(--text-dark-secondary);">Crossed $100M+ in client market value generated. Expanded engineering hubs in San Francisco, London, and Tokyo.</p>
+          </div>
+
+          <div class="bento-card interactive-card" data-aos="fade-up" data-aos-delay="300">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+              <span style="font-weight: 800; color: var(--accent-cyan); font-size: 1.2rem;">2024 — Enterprise Cloud Mesh Certification</span>
+              <span class="badge-tag">Phase 3</span>
+            </div>
+            <p style="color: var(--text-dark-secondary);">Achieved SOC-2 Type II and ISO27001 security compliance certification for our distributed Kubernetes micro-services engine.</p>
+          </div>
+
+          <div class="bento-card interactive-card" data-aos="fade-up" data-aos-delay="400">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+              <span style="font-weight: 800; color: var(--accent-cyan); font-size: 1.2rem;">2026 — AI Infrastructure & SaaS Platform Launch</span>
+              <span class="badge-tag badge-emerald">Current Phase</span>
+            </div>
+            <p style="color: var(--text-dark-secondary);">Released the Stackly SaaS workspace suite with automated Kubernetes scaling, role-based dashboards, and interactive email analytics.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. TECH STACK & CRAFTSMANSHIP MATRIX -->
+    <section class="section-tinted-cyan">
+      <div class="container">
+        <div class="section-header" data-aos="fade-up">
+          <span class="badge-tag">Tech Ecosystem</span>
+          <h2 class="section-title">Our Battle-Tested Technology Stack</h2>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;">
+          <div class="bento-card interactive-card" style="text-align: center; padding: 28px;" data-aos="fade-up" data-aos-delay="100">
+            <i class="fa-brands fa-js" style="font-size: 2.5rem; color: #facc15; margin-bottom: 12px;"></i>
+            <h4 style="font-size: 1.1rem; color: #fff;">ES6+ & TypeScript</h4>
+            <p style="color: var(--text-dark-secondary); font-size: 0.85rem; margin-top: 6px;">Strictly typed, zero-overhead client logic</p>
+          </div>
+
+          <div class="bento-card interactive-card" style="text-align: center; padding: 28px;" data-aos="fade-up" data-aos-delay="200">
+            <i class="fa-brands fa-golang" style="font-size: 2.5rem; color: #06b6d4; margin-bottom: 12px;"></i>
+            <h4 style="font-size: 1.1rem; color: #fff;">Go & Node.js</h4>
+            <p style="color: var(--text-dark-secondary); font-size: 0.85rem; margin-top: 6px;">High-concurrency micro-service gateways</p>
+          </div>
+
+          <div class="bento-card interactive-card" style="text-align: center; padding: 28px;" data-aos="fade-up" data-aos-delay="300">
+            <i class="fa-brands fa-docker" style="font-size: 2.5rem; color: #38bdf8; margin-bottom: 12px;"></i>
+            <h4 style="font-size: 1.1rem; color: #fff;">Kubernetes & Docker</h4>
+            <p style="color: var(--text-dark-secondary); font-size: 0.85rem; margin-top: 6px;">Auto-scaling multi-region cloud pods</p>
+          </div>
+
+          <div class="bento-card interactive-card" style="text-align: center; padding: 28px;" data-aos="fade-up" data-aos-delay="400">
+            <i class="fa-solid fa-brain" style="font-size: 2.5rem; color: #c084fc; margin-bottom: 12px;"></i>
+            <h4 style="font-size: 1.1rem; color: #fff;">Vector Search & LLMs</h4>
+            <p style="color: var(--text-dark-secondary); font-size: 0.85rem; margin-top: 6px;">Pinecone & OpenAI semantic workflows</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. SENIOR LEADERSHIP BENTO GRID -->
+    <section class="section-light">
+      <div class="container">
+        <div class="section-header" data-aos="fade-up">
+          <span class="badge-tag" style="background: rgba(79,70,229,0.1); color: var(--accent-indigo);">Senior Leadership</span>
+          <h2 class="section-title" style="color: var(--text-light-primary);">Meet the Architects Behind Stackly</h2>
+        </div>
+
+        <div class="bento-grid">
+          <div class="bento-card-light bento-col-4 interactive-card" data-aos="fade-up" data-aos-delay="100" style="padding: 32px; border-radius: var(--radius-lg);">
+            <div style="width: 70px; height: 70px; border-radius: 50%; background: linear-gradient(135deg, #4f46e5, #818cf8); color: #fff; font-size: 1.6rem; font-weight: 800; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">AV</div>
+            <h3 style="font-size: 1.3rem;">Alexei Volkov</h3>
+            <div style="color: var(--accent-indigo); font-weight: 600; font-size: 0.9rem; margin-bottom: 12px;">Founder & Chief Architect</div>
+            <p style="color: var(--text-light-secondary); font-size: 0.9rem;">Ex-Google Cloud Lead. 14+ years experience in high-concurrency distributed systems and GraphQL infrastructure.</p>
+          </div>
+
+          <div class="bento-card-light bento-col-4 interactive-card" data-aos="fade-up" data-aos-delay="200" style="padding: 32px; border-radius: var(--radius-lg);">
+            <div style="width: 70px; height: 70px; border-radius: 50%; background: linear-gradient(135deg, #06b6d4, #38bdf8); color: #fff; font-size: 1.6rem; font-weight: 800; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">SL</div>
+            <h3 style="font-size: 1.3rem;">Sarah Lin</h3>
+            <div style="color: var(--accent-cyan); font-weight: 600; font-size: 0.9rem; margin-bottom: 12px;">VP of Product Design</div>
+            <p style="color: var(--text-light-secondary); font-size: 0.9rem;">Former Design Systems Director at Stripe. Creator of accessibility-first design token specifications.</p>
+          </div>
+
+          <div class="bento-card-light bento-col-4 interactive-card" data-aos="fade-up" data-aos-delay="300" style="padding: 32px; border-radius: var(--radius-lg);">
+            <div style="width: 70px; height: 70px; border-radius: 50%; background: linear-gradient(135deg, #10b981, #34d399); color: #fff; font-size: 1.6rem; font-weight: 800; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">DR</div>
+            <h3 style="font-size: 1.3rem;">David Ross</h3>
+            <div style="color: var(--accent-emerald); font-weight: 600; font-size: 0.9rem; margin-bottom: 12px;">Head of DevOps & Security</div>
+            <p style="color: var(--text-light-secondary); font-size: 0.9rem;">Cybersecurity specialist focused on zero-trust cloud deployment pipelines and SOC-2 automated audits.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. GLOBAL ENGINEERING PODS & INFRASTRUCTURE MAP -->
+    <section class="section-dark-alt">
+      <div class="container">
+        <div class="section-header" data-aos="fade-up">
+          <span class="badge-tag badge-cyan">Global Reach</span>
+          <h2 class="section-title">24/7 Global Engineering Handoff</h2>
+          <p class="section-subtitle">Distributed engineering hubs providing continuous velocity across timezones.</p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;">
+          <div class="bento-card interactive-card" data-aos="fade-up" data-aos-delay="100">
+            <h4 style="color: #fff; font-size: 1.2rem; margin-bottom: 6px;">San Francisco HQ</h4>
+            <p style="color: var(--text-dark-secondary); font-size: 0.85rem;">Product Architecture & Strategy</p>
+            <div style="margin-top: 14px; font-weight: 700; color: var(--accent-cyan); font-size: 0.85rem;">PST / EST Timezones</div>
+          </div>
+
+          <div class="bento-card interactive-card" data-aos="fade-up" data-aos-delay="200">
+            <h4 style="color: #fff; font-size: 1.2rem; margin-bottom: 6px;">London Pod</h4>
+            <p style="color: var(--text-dark-secondary); font-size: 0.85rem;">FinTech & Security Systems</p>
+            <div style="margin-top: 14px; font-weight: 700; color: var(--accent-cyan); font-size: 0.85rem;">GMT / CET Timezones</div>
+          </div>
+
+          <div class="bento-card interactive-card" data-aos="fade-up" data-aos-delay="300">
+            <h4 style="color: #fff; font-size: 1.2rem; margin-bottom: 6px;">Tokyo Tech Hub</h4>
+            <p style="color: var(--text-dark-secondary); font-size: 0.85rem;">AI Vector & Edge Engineering</p>
+            <div style="margin-top: 14px; font-weight: 700; color: var(--accent-cyan); font-size: 0.85rem;">JST / AEST Timezones</div>
+          </div>
+
+          <div class="bento-card interactive-card" data-aos="fade-up" data-aos-delay="400">
+            <h4 style="color: #fff; font-size: 1.2rem; margin-bottom: 6px;">Zurich Vault</h4>
+            <p style="color: var(--text-dark-secondary); font-size: 0.85rem;">Data Encryption & Audit Compliance</p>
+            <div style="margin-top: 14px; font-weight: 700; color: var(--accent-cyan); font-size: 0.85rem;">CET Timezone</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. STUDIO CULTURE & WORKPLACE GALLERY -->
+    <section class="section-glass" style="position: relative;">
+      <div class="ambient-orb orb-indigo" style="top: 10%; right: 10px;"></div>
+
+      <div class="container" style="position: relative; z-index: 2;">
+        <div class="section-header" data-aos="fade-up">
+          <span class="badge-tag">Workplace & Culture</span>
+          <h2 class="section-title">Inside the Stackly Engineering Studio</h2>
+          <p class="section-subtitle">A culture dedicated to deep focus, transparent design jams, and continuous learning.</p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: center;">
+          <div class="image-card-wrapper" style="height: 320px;" data-aos="fade-right" data-aos-delay="150">
+            <img src="assets/office_culture.webp" alt="Stackly Software Architecture Studio Office" style="height: 100%;">
+          </div>
+
+          <div data-aos="fade-left" data-aos-delay="250">
+            <h3 style="font-size: 1.5rem; margin-bottom: 16px; color: #fff;">Crafted for Focus, Collaboration, & Rapid Innovation</h3>
+            <p style="color: var(--text-dark-secondary); font-size: 1rem; line-height: 1.7; margin-bottom: 20px;">
+              Our physical and remote workspaces are engineered to eliminate friction. With dedicated design review sessions, automated CI/CD pipeline monitors, and pair programming channels, we ensure every sprint delivers production-grade results.
+            </p>
+            <ul style="list-style: none; display: flex; flex-direction: column; gap: 12px; font-size: 0.95rem;">
+              <li><i class="fa-solid fa-check" style="color: var(--accent-cyan);"></i> Weekly Architecture Deep-Dive Workshops</li>
+              <li><i class="fa-solid fa-check" style="color: var(--accent-cyan);"></i> Open Source Contribution Sponsorships</li>
+              <li><i class="fa-solid fa-check" style="color: var(--accent-cyan);"></i> 100% Remote-First Flexible Working Pods</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10. EXECUTIVE ADVISORY BOARD -->
+    <section class="section-light">
+      <div class="container">
+        <div class="section-header" data-aos="fade-up">
+          <span class="badge-tag" style="background: rgba(79,70,229,0.1); color: var(--accent-indigo);">Executive Advisors</span>
+          <h2 class="section-title" style="color: var(--text-light-primary);">Supported by Industry Pioneers</h2>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;">
+          <div class="bento-card-light" data-aos="fade-up" data-aos-delay="100" style="padding: 28px; border-radius: var(--radius-md);">
+            <i class="fa-solid fa-quote-left" style="font-size: 1.8rem; color: var(--accent-indigo); margin-bottom: 12px;"></i>
+            <p style="color: var(--text-light-secondary); font-size: 0.95rem; line-height: 1.6; margin-bottom: 16px;">“Stackly sets the gold standard for senior web application engineering. Their commitment to clean architecture is unmatched.”</p>
+            <div style="font-weight: 700;">Julian Thorne</div>
+            <div style="font-size: 0.8rem; color: var(--text-light-muted);">Partner, Apex Venture Capital</div>
+          </div>
+
+          <div class="bento-card-light" data-aos="fade-up" data-aos-delay="200" style="padding: 28px; border-radius: var(--radius-md);">
+            <i class="fa-solid fa-quote-left" style="font-size: 1.8rem; color: var(--accent-cyan); margin-bottom: 12px;"></i>
+            <p style="color: var(--text-light-secondary); font-size: 0.95rem; line-height: 1.6; margin-bottom: 16px;">“Their zero-trust Kubernetes cloud deployment saved our infrastructure over $300k in annual cloud server costs.”</p>
+            <div style="font-weight: 700;">Clarissa Wu</div>
+            <div style="font-size: 0.8rem; color: var(--text-light-muted);">VP Tech, Global Logistics Mesh</div>
+          </div>
+
+          <div class="bento-card-light" data-aos="fade-up" data-aos-delay="300" style="padding: 28px; border-radius: var(--radius-md);">
+            <i class="fa-solid fa-quote-left" style="font-size: 1.8rem; color: var(--accent-emerald); margin-bottom: 12px;"></i>
+            <p style="color: var(--text-light-secondary); font-size: 0.95rem; line-height: 1.6; margin-bottom: 16px;">“Working with Stackly feels like having an internal team of principal engineers focused entirely on your product success.”</p>
+            <div style="font-weight: 700;">Marcus Vance</div>
+            <div style="font-size: 0.8rem; color: var(--text-light-muted);">CTO, FinTech Global</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 11. SECURITY, COMPLIANCE & ISO CERTIFICATION WALL -->
+    <section class="section-dark-alt">
+      <div class="container">
+        <div class="section-header" data-aos="fade-up">
+          <span class="badge-tag">Compliance Standards</span>
+          <h2 class="section-title">Certified Enterprise Compliance</h2>
+        </div>
+
+        <div style="display: flex; justify-content: center; gap: 32px; flex-wrap: wrap; text-align: center;">
+          <div style="background: rgba(255,255,255,0.04); padding: 24px 36px; border-radius: var(--radius-md); border: 1px solid var(--border-dark);" data-aos="flip-up" data-aos-delay="100">
+            <i class="fa-solid fa-shield-check" style="font-size: 2.2rem; color: var(--accent-emerald); margin-bottom: 12px;"></i>
+            <div style="font-weight: 700; color: #fff;">SOC-2 Type II Certified</div>
+            <div style="font-size: 0.8rem; color: #9ca3af; margin-top: 4px;">Audited Security Protocols</div>
+          </div>
+
+          <div style="background: rgba(255,255,255,0.04); padding: 24px 36px; border-radius: var(--radius-md); border: 1px solid var(--border-dark);" data-aos="flip-up" data-aos-delay="200">
+            <i class="fa-solid fa-lock" style="font-size: 2.2rem; color: var(--accent-cyan); margin-bottom: 12px;"></i>
+            <div style="font-weight: 700; color: #fff;">ISO 27001 Compliant</div>
+            <div style="font-size: 0.8rem; color: #9ca3af; margin-top: 4px;">Information Security Management</div>
+          </div>
+
+          <div style="background: rgba(255,255,255,0.04); padding: 24px 36px; border-radius: var(--radius-md); border: 1px solid var(--border-dark);" data-aos="flip-up" data-aos-delay="300">
+            <i class="fa-solid fa-user-shield" style="font-size: 2.2rem; color: #a5b4fc; margin-bottom: 12px;"></i>
+            <div style="font-weight: 700; color: #fff;">GDPR & HIPAA Ready</div>
+            <div style="font-size: 0.8rem; color: #9ca3af; margin-top: 4px;">Encrypted Data Vaults</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 12. AWARDS & INDUSTRY RECOGNITIONS -->
+    <section class="section-tinted-cyan">
+      <div class="container">
+        <div class="section-header" data-aos="fade-up">
+          <span class="badge-tag badge-cyan">Honors & Media</span>
+          <h2 class="section-title">Industry Recognitions</h2>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;">
+          <div class="bento-card" data-aos="fade-up" data-aos-delay="100">
+            <i class="fa-solid fa-award" style="font-size: 2rem; color: #facc15; margin-bottom: 12px;"></i>
+            <h4 style="font-size: 1.2rem; color: #fff; margin-bottom: 6px;">Awwwards Site of the Month</h4>
+            <p style="color: var(--text-dark-secondary); font-size: 0.85rem;">Nominated for UI/UX visual storytelling and sub-second interaction speed.</p>
+          </div>
+
+          <div class="bento-card" data-aos="fade-up" data-aos-delay="200">
+            <i class="fa-solid fa-star" style="font-size: 2rem; color: var(--accent-cyan); margin-bottom: 12px;"></i>
+            <h4 style="font-size: 1.2rem; color: #fff; margin-bottom: 6px;">Clutch Top 1% Dev Agency</h4>
+            <p style="color: var(--text-dark-secondary); font-size: 0.85rem;">Ranked #1 for enterprise SaaS architecture and client satisfaction ratings.</p>
+          </div>
+
+          <div class="bento-card" data-aos="fade-up" data-aos-delay="300">
+            <i class="fa-solid fa-trophy" style="font-size: 2rem; color: var(--accent-emerald); margin-bottom: 12px;"></i>
+            <h4 style="font-size: 1.2rem; color: #fff; margin-bottom: 6px;">DevStudio Award 2026</h4>
+            <p style="color: var(--text-dark-secondary); font-size: 0.85rem;">Recognized for zero-bloat code quality and accessibility standards.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 13. CAREERS & OPEN POSITIONS BENTO GRID -->
+    <section class="section-tinted-indigo" style="position: relative;">
+      <div class="ambient-orb orb-cyan" style="bottom: 0; left: 0;"></div>
+
+      <div class="container" style="position: relative; z-index: 2;">
+        <div class="section-header" data-aos="fade-up">
+          <span class="badge-tag badge-cyan">We Are Hiring</span>
+          <h2 class="section-title">Join the Stackly Engineering Pods</h2>
+          <p class="section-subtitle">We are always seeking principal engineers, UI designers, and systems architects.</p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px;">
+          <div class="bento-card interactive-card" data-aos="fade-right">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+              <h3 style="font-size: 1.2rem;">Senior Frontend Architect (TypeScript / WebGL)</h3>
+              <span class="badge-tag badge-emerald">Remote</span>
+            </div>
+            <p style="color: var(--text-dark-secondary); font-size: 0.9rem; margin-bottom: 16px;">Lead the development of custom micro-interaction engines, canvas visuals, and design token integration.</p>
+            <a href="404.html" class="btn btn-secondary" style="font-size: 0.85rem; padding: 8px 16px;">Apply Now</a>
+          </div>
+
+          <div class="bento-card interactive-card" data-aos="fade-left">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+              <h3 style="font-size: 1.2rem;">Cloud DevOps Engineer (Kubernetes / Go)</h3>
+              <span class="badge-tag badge-emerald">Remote</span>
+            </div>
+            <p style="color: var(--text-dark-secondary); font-size: 0.9rem; margin-bottom: 16px;">Build automated multi-region deployment pipelines and zero-downtime cluster orchestration.</p>
+            <a href="404.html" class="btn btn-secondary" style="font-size: 0.85rem; padding: 8px 16px;">Apply Now</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 14. FAQ ACCORDION ABOUT STUDIO PARTNERSHIPS -->
+    <section class="section-dark">
+      <div class="container">
+        <div class="section-header" data-aos="fade-up">
+          <span class="badge-tag">Studio FAQ</span>
+          <h2 class="section-title">Frequently Asked Questions About Working With Us</h2>
+        </div>
+
+        <div class="accordion-list" data-aos="fade-up" data-aos-delay="150">
+          <div class="accordion-item active">
+            <div class="accordion-header">
+              <span>What is the typical team structure for a Stackly engagement pod?</span>
+              <i class="fa-solid fa-chevron-down accordion-icon"></i>
+            </div>
+            <div class="accordion-content">
+              Each dedicated pod consists of a Principal Lead Architect, 2 Senior Full-Stack Developers, a VP Design Lead, and a DevOps Security Specialist working in direct synchronization with your team.
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <span>Who owns the intellectual property and code repositories?</span>
+              <i class="fa-solid fa-chevron-down accordion-icon"></i>
+            </div>
+            <div class="accordion-content">
+              Your organization maintains 100% complete IP ownership of all codebases, Git repositories, Figma design system files, and architectural documentation.
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <span>How are project milestones tracked and communicated?</span>
+              <i class="fa-solid fa-chevron-down accordion-icon"></i>
+            </div>
+            <div class="accordion-content">
+              We communicate daily via Slack and host bi-weekly sprint demo releases. You gain live access to your client dashboard workspace with real-time build telemetry.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 15. CTA BANNER & MEGA FOOTER -->
+    <section class="section-gradient-banner" data-aos="zoom-in" data-aos-duration="900">
+      <div class="container" style="text-align: center;">
+        <h2 style="font-size: clamp(2rem, 4vw, 3.2rem); margin-bottom: 16px;">Want to Collaborate with Our Senior Engineers?</h2>
+        <p style="font-size: 1.15rem; max-width: 600px; margin: 0 auto 32px auto; opacity: 0.9;">Tell us about your product roadmap and receive a detailed architecture proposal.</p>
+        <a href="404.html" class="btn btn-cyan shimmer-btn" style="padding: 14px 32px;"><i class="fa-solid fa-comments"></i> Start Conversation</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- 1. BRAND COLUMN -->
+        <div class="footer-brand">
+          <a href="index.html" class="logo-brand">
+            <img src="assets/logo.webp" alt="Stackly Logo" class="logo-image">
+          </a>
+          <p>The intelligent enterprise management platform built for scale.</p>
+          <div class="footer-social-links">
+            <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn" class="social-circle-icon"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://twitter.com" target="_blank" aria-label="Twitter" class="social-circle-icon"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="https://youtube.com" target="_blank" aria-label="YouTube" class="social-circle-icon"><i class="fa-brands fa-youtube"></i></a>
+            <a href="https://github.com" target="_blank" aria-label="GitHub" class="social-circle-icon"><i class="fa-brands fa-github"></i></a>
+          </div>
+        </div>
+
+        <!-- 2. QUICK LINKS -->
+        <div>
+          <h4 class="footer-title">Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- 3. SUPPORT -->
+        <div>
+          <h4 class="footer-title">Support</h4>
+          <ul class="footer-links">
+            <li><a href="404.html">Help Center</a></li>
+            <li><a href="404.html">FAQ</a></li>
+            <li><a href="404.html">Documentation</a></li>
+            <li><a href="404.html">Privacy Policy</a></li>
+            <li><a href="404.html">Terms of Service</a></li>
+          </ul>
+        </div>
+
+        <!-- 4. CONNECT -->
+        <div>
+          <h4 class="footer-title">Connect</h4>
+          <ul class="footer-contact-list">
+            <li class="footer-contact-item">
+              <i class="fa-solid fa-location-dot contact-icon"></i>
+              <div>
+                <strong>Office Address:</strong>
+                <span>OMR IT Expressway, Chennai, Tamil Nadu, India</span>
+              </div>
+            </li>
+            <li class="footer-contact-item">
+              <i class="fa-solid fa-phone contact-icon"></i>
+              <div>
+                <strong>Phone:</strong>
+                <span>+91 98765 43210</span>
+              </div>
+            </li>
+            <li class="footer-contact-item">
+              <i class="fa-solid fa-envelope contact-icon"></i>
+              <div>
+                <strong>Sales Email:</strong>
+                <span>info@stackly.com</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 Stackly Web Engineering Studio. All rights reserved.</div>
+        <div style="display: flex; gap: 20px;">
+          <a href="404.html">Privacy Policy</a>
+          <a href="404.html">Terms of Service</a>
+          <a href="404.html">Security Protocol</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="main.js"></script>
+  <script src="3d-effects.js"></script>
+</body>
+</html>
