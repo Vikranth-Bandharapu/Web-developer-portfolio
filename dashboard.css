@@ -99,6 +99,12 @@
   .dash-main.sidebar-collapsed {
     margin-left: 0 !important;
   }
+  .dash-topbar .dash-sidebar-toggle {
+    display: none !important;
+  }
+  .dash-topbar-logo {
+    display: none !important;
+  }
 }
 
 /* Topbar Header */
@@ -707,17 +713,47 @@
 .form-control-dash {
   width: 100%;
   padding: 10px 14px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #0f172a;
+  border: 1px solid rgba(129, 140, 248, 0.3);
   border-radius: 10px;
   color: #ffffff;
   font-size: 0.9rem;
-  transition: border-color 0.2s ease;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  box-sizing: border-box;
 }
 
 .form-control-dash:focus {
   border-color: #4f46e5;
+  box-shadow: 0 0 12px rgba(79, 70, 229, 0.4);
   outline: none;
+}
+
+/* Dropdown Select Option Popover Visibility Fix */
+select.form-control-dash,
+.form-control-dash select,
+select {
+  background-color: #0f172a !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(129, 140, 248, 0.35) !important;
+  cursor: pointer;
+
+}
+
+select.form-control-dash option,
+.form-control-dash option,
+select option {
+  background-color: #0f172a !important;
+  color: #ffffff !important;
+  padding: 12px 16px !important;
+  font-size: 0.9rem !important;
+  font-weight: 600 !important;
+}
+
+select.form-control-dash option:hover,
+select.form-control-dash option:focus,
+select.form-control-dash option:checked {
+  background-color: #4f46e5 !important;
+  color: #ffffff !important;
 }
 
 .toggle-switch-row {
@@ -878,6 +914,12 @@
 
 /* Mobile Dashboard Adjustments */
 @media (max-width: 1024px) {
+  .dash-topbar .dash-sidebar-toggle {
+    display: flex !important;
+  }
+  .dash-topbar-logo {
+    display: flex !important;
+  }
   .dash-sidebar {
     transform: translateX(-100%);
     background: #090d16 !important;
@@ -989,4 +1031,29 @@
   .dash-content { padding: 10px 6px; }
   .chart-panel, .dash-metric-card, .bento-card, .settings-card { padding: 12px 8px; }
   .dash-table { min-width: 480px; }
+}
+
+
+/* Microservice & Log Row Hover Effects */
+.micro-service-item {
+  cursor: pointer !important;
+  transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease !important;
+}
+.micro-service-item:hover {
+  background: rgba(99, 102, 241, 0.18) !important;
+  transform: translateX(4px);
+}
+.audit-log-row {
+  cursor: pointer !important;
+  transition: background 0.2s ease !important;
+}
+.audit-log-row:hover {
+  background: rgba(99, 102, 241, 0.15) !important;
+}
+.terminal-line {
+  cursor: pointer !important;
+  transition: background 0.2s ease !important;
+}
+.terminal-line:hover {
+  background: rgba(255, 255, 255, 0.05) !important;
 }

@@ -1,4 +1,4 @@
-/* ==========================================================================
+﻿/* ==========================================================================
    STACKLY SAAS DASHBOARD & EMAIL CENTER CONTROLLER MODULE
    ========================================================================== */
 
@@ -222,6 +222,7 @@ Need assistance? Refer to our internal documentation or ping #devops-support.`
 ];
 
 document.addEventListener('DOMContentLoaded', () => {
+  window.scrollTo(0, 0);
   initDashboardAuthCheck();
   initDashboardTabs();
   applyDashboardMode();
@@ -229,6 +230,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initCharts();
   initEmailCenter();
   initTaskFilters();
+  window.scrollTo(0, 0);
 });
 
 /* 1. AUTH SESSION CHECK & USER PROFILE DISPLAY */
@@ -376,9 +378,8 @@ function initDashboardTabs() {
       link.classList.add('active');
 
       const targetPane = document.getElementById(`tab-${targetTab}`);
-      if (targetPane) {
-        targetPane.classList.add('active');
-      }
+      if (targetPane) { targetPane.classList.add('active'); }
+      window.scrollTo(0, 0);
 
       // Close sidebar and dismiss backdrop on mobile after tab click
       const sidebar = document.querySelector('.dash-sidebar');
@@ -608,10 +609,10 @@ function initEmailCenter() {
     detailPane.innerHTML = `
       <div style="display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 16px; margin-bottom: 20px;">
         <div style="display: flex; gap: 8px;">
-          <button class="btn btn-primary btn-sm" onclick="showToast('Reply mode initialized for ${email.sender}', 'info')"><i class="fa-solid fa-reply"></i> Reply</button>
-          <button class="btn btn-secondary btn-sm" onclick="showToast('Forwarding message...', 'info')"><i class="fa-solid fa-share"></i> Forward</button>
-          <button class="btn btn-secondary btn-sm" onclick="showToast('Message starred', 'success')"><i class="fa-regular fa-star"></i></button>
-          <button class="btn btn-secondary btn-sm" onclick="showToast('Email archived', 'info')"><i class="fa-solid fa-box-archive"></i></button>
+          <button class="btn btn-primary btn-sm" onclick="window.location.href='404.html'"><i class="fa-solid fa-reply"></i> Reply</button>
+          <button class="btn btn-secondary btn-sm" onclick="window.location.href='404.html'"><i class="fa-solid fa-share"></i> Forward</button>
+          <button class="btn btn-secondary btn-sm" onclick="window.location.href='404.html'"><i class="fa-regular fa-star"></i></button>
+          <button class="btn btn-secondary btn-sm" onclick="window.location.href='404.html'"><i class="fa-solid fa-box-archive"></i></button>
         </div>
         <div style="font-size: 0.8rem; color: #9ca3af;">
           <i class="fa-solid fa-shield-halved" style="color: #34d399; margin-right: 4px;"></i> Encrypted AES-256
@@ -634,10 +635,10 @@ function initEmailCenter() {
       <div style="margin-top: 24px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.06);">
         <div style="font-size: 0.85rem; font-weight: 600; color: #9ca3af; margin-bottom: 10px;">Attachments (2 Files)</div>
         <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-          <div class="attachment-pill" onclick="showToast('Downloading SOC2_Compliance_Audit_Report.pdf...', 'info')">
+          <div class="attachment-pill" onclick="window.location.href='404.html'">
             <i class="fa-regular fa-file-pdf" style="color: #f43f5e;"></i> SOC2_Compliance_Audit_2026.pdf (1.8 MB)
           </div>
-          <div class="attachment-pill" onclick="showToast('Downloading Architecture_Roadmap_v4.2.webp...', 'info')">
+          <div class="attachment-pill" onclick="window.location.href='404.html'">
             <i class="fa-regular fa-file-image" style="color: #38bdf8;"></i> Architecture_Roadmap_v4.2.webp (840 KB)
           </div>
         </div>
@@ -646,10 +647,15 @@ function initEmailCenter() {
       <!-- Quick Reply Text Area -->
       <div style="margin-top: 32px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 16px;">
         <div style="font-size: 0.9rem; font-weight: 600; color: #fff; margin-bottom: 10px;">Quick Reply to ${email.sender}</div>
-        <textarea id="email-reply-text" placeholder="Type your response to ${email.sender}..." style="width: 100%; height: 80px; background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; color: #fff; padding: 10px; font-size: 0.9rem; font-family: inherit; resize: vertical; margin-bottom: 12px;"></textarea>
+        <textarea id="email-reply-text" style="width: 100%; height: 90px; background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; color: #fff; padding: 10px; font-size: 0.9rem; font-family: inherit; resize: vertical; margin-bottom: 12px;">Hi ${email.sender},
+
+Thank you for the detailed update regarding "${email.subject}". We have reviewed the roadmap specifications and approved the release candidate deployment for staging.
+
+Best regards,
+Stackly Engineering Operations</textarea>
         <div style="display: flex; justify-content: space-between; align-items: center;">
           <span style="font-size: 0.75rem; color: #6b7280;">Markdown supported</span>
-          <button class="btn btn-cyan btn-sm shimmer-btn" onclick="sendQuickReply('${email.sender}')"><i class="fa-solid fa-paper-plane"></i> Send Reply</button>
+          <button class="btn btn-cyan btn-sm shimmer-btn" onclick="window.location.href='404.html'"><i class="fa-solid fa-paper-plane"></i> Send Reply</button>
         </div>
       </div>
     `;
@@ -670,13 +676,7 @@ function initEmailCenter() {
 }
 
 function sendQuickReply(senderName) {
-  const replyInput = document.getElementById('email-reply-text');
-  if (replyInput && replyInput.value.trim() !== '') {
-    showToast(`Reply sent successfully to ${senderName}!`, 'success');
-    replyInput.value = '';
-  } else {
-    showToast('Please enter a response before sending.', 'warning');
-  }
+  window.location.href = '404.html';
 }
 
 /* 6. TASKS TABLE FILTER & CATEGORY FILTER */
@@ -719,36 +719,6 @@ function initTaskFilters() {
 
 /* 7. DYNAMIC TASK CREATOR HANDLER */
 function handleAddNewTask() {
-  const titleInput = document.getElementById('new-task-title');
-  const catInput = document.getElementById('new-task-category');
-  const priorityInput = document.getElementById('new-task-priority');
-  const assigneeInput = document.getElementById('new-task-assignee');
-  const tableBody = document.getElementById('task-table-body');
-
-  if (!titleInput || !tableBody || !titleInput.value.trim()) return;
-
-  const title = titleInput.value.trim();
-  const category = catInput ? catInput.value : 'frontend';
-  const priority = priorityInput ? priorityInput.value : 'HIGH';
-  const assignee = assigneeInput ? assigneeInput.value : 'Developer Demo';
-
-  const initials = assignee.split(' ').map(n => n[0]).join('').toUpperCase();
-  const catBadgeClass = category === 'frontend' ? 'badge-cyan' : category === 'backend' ? 'badge-indigo' : 'badge-violet';
-
-  const tr = document.createElement('tr');
-  tr.className = 'task-table-row';
-  tr.setAttribute('data-category', category);
-  tr.innerHTML = `
-    <td><strong>${title}</strong></td>
-    <td><div style="display: flex; align-items: center; gap: 8px;"><div class="dash-user-avatar" style="width: 26px; height: 26px; font-size: 0.7rem; background: #4f46e5;">${initials}</div> ${assignee}</div></td>
-    <td><span class="badge-tag ${catBadgeClass}">${category.toUpperCase()}</span></td>
-    <td><span style="color: var(--accent-rose); font-weight: 700;">${priority}</span></td>
-    <td>3 hrs</td>
-    <td><span class="status-badge status-progress">In Progress</span></td>
-  `;
-
-  tableBody.insertBefore(tr, tableBody.firstChild);
-  titleInput.value = '';
-  showToast(`Task "${title}" added to sprint backlog!`, 'success');
-  initTaskFilters();
+  window.location.href = '404.html';
 }
+

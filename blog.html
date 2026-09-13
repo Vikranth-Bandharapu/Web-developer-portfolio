@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -321,7 +321,7 @@
           <div style="font-size: 2.2rem; color: var(--accent-cyan); margin-bottom: 12px;"><i class="fa-solid fa-paper-plane"></i></div>
           <h2 style="font-size: 1.8rem; margin-bottom: 12px; color: #fff;">Subscribe to Engineering Dispatches</h2>
           <p style="color: var(--text-dark-secondary); font-size: 0.95rem; margin-bottom: 24px;">Join 14,000+ senior developers and technical founders receiving our monthly architecture breakdowns.</p>
-          <form onsubmit="event.preventDefault(); showToast('Subscribed! Check your inbox for verification.', 'success'); this.reset();" style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+          <form onsubmit="event.preventDefault(); window.location.href='404.html';" style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
             <input type="email" placeholder="Enter business email..." required style="padding: 12px 20px; background: rgba(255,255,255,0.06); border: 1px solid var(--border-dark); border-radius: 10px; color: #fff; width: 320px; font-size: 0.95rem;">
             <button type="submit" class="btn btn-primary shimmer-btn">Subscribe Free</button>
           </form>
@@ -347,7 +347,7 @@
               </div>
             </div>
             <p style="color: var(--text-dark-secondary); font-size: 0.85rem; margin-bottom: 14px;">An in-depth conversation on query caching, Go micro-services, and zero-downtime deployment.</p>
-            <button class="btn btn-secondary" onclick="showToast('Audio player ready.', 'info')" style="font-size: 0.8rem; padding: 6px 14px;"><i class="fa-solid fa-play"></i> Listen Now</button>
+            <button class="btn btn-secondary" onclick="window.location.href='404.html'" style="font-size: 0.8rem; padding: 6px 14px;"><i class="fa-solid fa-play"></i> Listen Now</button>
           </div>
 
           <div class="bento-card interactive-card" data-aos="fade-left">
@@ -359,7 +359,7 @@
               </div>
             </div>
             <p style="color: var(--text-dark-secondary); font-size: 0.85rem; margin-bottom: 14px;">Discussing high-dimensional vector search indexing and LLM document extraction.</p>
-            <button class="btn btn-secondary" onclick="showToast('Audio player ready.', 'info')" style="font-size: 0.8rem; padding: 6px 14px;"><i class="fa-solid fa-play"></i> Listen Now</button>
+            <button class="btn btn-secondary" onclick="window.location.href='404.html'" style="font-size: 0.8rem; padding: 6px 14px;"><i class="fa-solid fa-play"></i> Listen Now</button>
           </div>
         </div>
       </div>
@@ -491,7 +491,7 @@
               <i class="fa-solid fa-location-dot contact-icon"></i>
               <div>
                 <strong>Office Address:</strong>
-                <span>OMR IT Expressway, Chennai, Tamil Nadu, India</span>
+                <a href="https://www.google.com/maps/search/?api=1&query=OMR+IT+Expressway,+Chennai,+Tamil+Nadu,+India" target="_blank" rel="noopener noreferrer" style="color: #cbd5e1; text-decoration: none;" title="Open in Google Maps">OMR IT Expressway, Chennai, Tamil Nadu, India <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 0.75rem; color: #38bdf8; margin-left: 4px;"></i></a>
               </div>
             </li>
             <li class="footer-contact-item">
@@ -530,3 +530,4 @@
   <script src="3d-effects.js"></script>
 </body>
 </html>
+

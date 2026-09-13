@@ -164,7 +164,7 @@
           <p class="section-subtitle">Visit our flagship software engineering studio located on the OMR IT Corridor in Tamil Nadu, India.</p>
         </div>
 
-        <div class="bento-card" data-aos="zoom-in" style="padding: 16px; border-color: var(--border-dark-highlight); overflow: hidden;">
+        <div id="studio-map" class="bento-card" data-aos="zoom-in" style="padding: 16px; border-color: var(--border-dark-highlight); overflow: hidden;">
           <!-- Real Interactive Embedded Google Map for Stackly Tamil Nadu, India -->
           <iframe 
             src="https://maps.google.com/maps?q=OMR%20IT%20Expressway,%20Chennai,%20Tamil%20Nadu,%20India&t=&z=14&ie=UTF8&iwloc=&output=embed" 
@@ -219,7 +219,10 @@
             <p style="color: var(--text-dark-secondary); font-size: 1.05rem; line-height: 1.7; margin-bottom: 20px;">
               Our Tamil Nadu engineering studio houses 60+ senior full-stack developers, cloud architects, and UI/UX designers specializing in enterprise SaaS products and Kubernetes infrastructure.
             </p>
-            <a href="contact.html" onclick="event.preventDefault(); showToast('Directions sent to your email.', 'info')" class="btn btn-secondary"><i class="fa-solid fa-diamond-turn-right"></i> Get Driving Directions</a>
+            <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+              <a href="https://www.google.com/maps/search/?api=1&query=Stackly+Technology+Tower,+OMR+IT+Expressway,+Perungudi,+Chennai,+Tamil+Nadu+600096" target="_blank" rel="noopener noreferrer" class="btn btn-cyan shimmer-btn"><i class="fa-solid fa-map-location-dot"></i> Get Driving Directions on Google Maps</a>
+              <a href="#studio-map" class="btn btn-secondary"><i class="fa-solid fa-eye"></i> View Interactive Map</a>
+            </div>
           </div>
         </div>
       </div>
@@ -268,14 +271,14 @@
           <p style="color: var(--text-dark-secondary); font-size: 0.9rem; margin-bottom: 24px;">Meet directly with our Principal Architect or Tamil Nadu Pod Lead.</p>
 
           <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin-bottom: 24px;">
-            <button type="button" class="btn btn-secondary" onclick="showToast('Selected Monday 10:00 AM IST', 'info')" style="padding: 12px; font-size: 0.85rem;">Mon, Sep 14</button>
-            <button type="button" class="btn btn-secondary" onclick="showToast('Selected Tuesday 2:00 PM IST', 'info')" style="padding: 12px; font-size: 0.85rem;">Tue, Sep 15</button>
-            <button type="button" class="btn btn-primary shimmer-btn" onclick="showToast('Selected Wednesday 4:00 PM IST', 'info')" style="padding: 12px; font-size: 0.85rem;">Wed, Sep 16</button>
-            <button type="button" class="btn btn-secondary" onclick="showToast('Selected Thursday 11:00 AM IST', 'info')" style="padding: 12px; font-size: 0.85rem;">Thu, Sep 17</button>
-            <button type="button" class="btn btn-secondary" onclick="showToast('Selected Friday 5:00 PM IST', 'info')" style="padding: 12px; font-size: 0.85rem;">Fri, Sep 18</button>
+            <button type="button" class="btn btn-secondary" onclick="window.location.href='404.html'" style="padding: 12px; font-size: 0.85rem;">Mon, Sep 14</button>
+            <button type="button" class="btn btn-secondary" onclick="window.location.href='404.html'" style="padding: 12px; font-size: 0.85rem;">Tue, Sep 15</button>
+            <button type="button" class="btn btn-primary shimmer-btn" onclick="window.location.href='404.html'" style="padding: 12px; font-size: 0.85rem;">Wed, Sep 16</button>
+            <button type="button" class="btn btn-secondary" onclick="window.location.href='404.html'" style="padding: 12px; font-size: 0.85rem;">Thu, Sep 17</button>
+            <button type="button" class="btn btn-secondary" onclick="window.location.href='404.html'" style="padding: 12px; font-size: 0.85rem;">Fri, Sep 18</button>
           </div>
 
-          <button class="btn btn-cyan shimmer-btn" onclick="showToast('Discovery slot reserved! Confirmation email sent.', 'success')"><i class="fa-solid fa-calendar-check"></i> Reserve Selected Slot</button>
+          <button class="btn btn-cyan shimmer-btn" onclick="window.location.href='404.html'"><i class="fa-solid fa-calendar-check"></i> Reserve Selected Slot</button>
         </div>
       </div>
     </section>
@@ -478,7 +481,7 @@
               <i class="fa-solid fa-location-dot contact-icon"></i>
               <div>
                 <strong>Office Address:</strong>
-                <span>OMR IT Expressway, Chennai, Tamil Nadu, India</span>
+                <a href="https://www.google.com/maps/search/?api=1&query=OMR+IT+Expressway,+Chennai,+Tamil+Nadu,+India" target="_blank" rel="noopener noreferrer" style="color: #cbd5e1; text-decoration: none;" title="Open in Google Maps">OMR IT Expressway, Chennai, Tamil Nadu, India <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 0.75rem; color: #38bdf8; margin-left: 4px;"></i></a>
               </div>
             </li>
             <li class="footer-contact-item">
@@ -517,3 +520,5 @@
   <script src="3d-effects.js"></script>
 </body>
 </html>
+
+
