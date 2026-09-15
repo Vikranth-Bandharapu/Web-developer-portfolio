@@ -1,4 +1,4 @@
-﻿/* ==========================================================================
+/* ==========================================================================
    STACKLY SAAS DASHBOARD & EMAIL CENTER CONTROLLER MODULE
    ========================================================================== */
 
@@ -395,7 +395,6 @@ function initDashboardTabs() {
 
 /* 3. SIDEBAR TOGGLE ON DESKTOP & MOBILE WITH BACKDROP OVERLAY */
 function initSidebarMobile() {
-  const toggleBtns = document.querySelectorAll('.dash-sidebar-toggle');
   const sidebar = document.querySelector('.dash-sidebar');
   const main = document.querySelector('.dash-main');
   if (!sidebar) return;
@@ -408,17 +407,6 @@ function initSidebarMobile() {
     document.body.appendChild(backdrop);
   }
 
-  const openSidebar = () => {
-    if (window.innerWidth > 1024) {
-      sidebar.classList.remove('collapsed');
-      if (main) main.classList.remove('sidebar-collapsed');
-    } else {
-      sidebar.classList.add('open');
-      if (backdrop) backdrop.classList.add('active');
-      document.body.style.overflow = 'hidden';
-    }
-  };
-
   const closeSidebar = () => {
     if (window.innerWidth > 1024) {
       sidebar.classList.add('collapsed');
@@ -430,38 +418,25 @@ function initSidebarMobile() {
     }
   };
 
-  const toggleSidebar = (e) => {
-    if (e) {
-      e.stopPropagation();
-      e.preventDefault();
-    }
-    if (window.innerWidth > 1024) {
-      if (sidebar.classList.contains('collapsed')) {
-        openSidebar();
-      } else {
-        closeSidebar();
-      }
-    } else {
-      if (sidebar.classList.contains('open')) {
-        closeSidebar();
-      } else {
-        openSidebar();
-      }
-    }
-  };
-
-  toggleBtns.forEach(btn => {
-    btn.onclick = toggleSidebar;
-  });
-
   const closeBtn = document.querySelector('.dash-sidebar-close');
   if (closeBtn) {
-    closeBtn.onclick = closeSidebar;
+    closeBtn.removeEventListener('click', closeSidebar);
+    closeBtn.addEventListener('click', closeSidebar);
   }
 
   if (backdrop) {
-    backdrop.onclick = closeSidebar;
+    backdrop.removeEventListener('click', closeSidebar);
+    backdrop.addEventListener('click', closeSidebar);
   }
+
+  // Close sidebar on mobile when selecting any navigation link
+  document.querySelectorAll('.dash-nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+      if (window.innerWidth <= 1024) {
+        closeSidebar();
+      }
+    });
+  });
 
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
@@ -469,15 +444,6 @@ function initSidebarMobile() {
         closeSidebar();
       }
     }
-  });
-
-  const navLinks = sidebar.querySelectorAll('.dash-nav-link');
-  navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      if (window.innerWidth <= 1024) {
-        closeSidebar();
-      }
-    });
   });
 }
 
@@ -722,3 +688,51 @@ function handleAddNewTask() {
   window.location.href = '404.html';
 }
 
+
+
+
+/* GLOBAL BULLETPROOF MOBILE SIDEBAR TOGGLE */
+function toggleMobileDashSidebar(e) {
+  if (e) {
+    e.stopPropagation();
+    e.preventDefault();
+  }
+  const sidebar = document.querySelector('.dash-sidebar');
+  const main = document.querySelector('.dash-main');
+  let backdrop = document.querySelector('.dash-sidebar-backdrop');
+  
+  if (!backdrop) {
+    backdrop = document.createElement('div');
+    backdrop.className = 'dash-sidebar-backdrop';
+    document.body.appendChild(backdrop);
+  }
+  backdrop.onclick = () => {
+    if (sidebar) sidebar.classList.remove('open');
+    backdrop.classList.remove('active');
+    document.body.style.overflow = '';
+  };
+
+  if (sidebar) {
+    if (window.innerWidth > 1024) {
+      if (sidebar.classList.contains('collapsed')) {
+        sidebar.classList.remove('collapsed');
+        if (main) main.classList.remove('sidebar-collapsed');
+      } else {
+        sidebar.classList.add('collapsed');
+        if (main) main.classList.add('sidebar-collapsed');
+      }
+    } else {
+      const isOpen = sidebar.classList.contains('open');
+      if (isOpen) {
+        sidebar.classList.remove('open');
+        backdrop.classList.remove('active');
+        document.body.style.overflow = '';
+      } else {
+        sidebar.classList.add('open');
+        backdrop.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+  }
+}
+window.toggleMobileDashSidebar = toggleMobileDashSidebar;

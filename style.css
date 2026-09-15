@@ -1,4 +1,4 @@
-/* ==========================================================================
+﻿/* ==========================================================================
    STACKLY SENIOR DESIGN SYSTEM — ADVANCED VISUAL CARDS & TOKENS
    ========================================================================== */
 
@@ -1291,3 +1291,16 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: 0 0 20px rgba(6, 182, 212, 0.3);
 }
 
+
+
+/* Global Viewport & Horizontal Overflow Lock */
+html, body {
+  max-width: 100vw !important;
+  overflow-x: hidden !important;
+  box-sizing: border-box !important;
+}
+
+.dashboard-wrapper, .dash-main, .dash-content, .hero-wrapper, .container {
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}

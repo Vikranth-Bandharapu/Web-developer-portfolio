@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initCategoryFilters();
   initRoiCalculator();
   initContactForm();
+  initNewsletterForm();
   initAosAnimations();
   initGsapAnimations();
 });
@@ -187,10 +188,27 @@ function initContactForm() {
       return;
     }
 
-    showToast(`Thank you, ${name}! Redirecting...`, 'success');
-    setTimeout(() => {
-      window.location.href = '404.html';
-    }, 1000);
+    showToast(`Thank you, ${name}! Your request has been received.`, 'success');
+    contactForm.reset();
+  });
+}
+
+/* 7B. NEWSLETTER SUBSCRIPTION FORM RESET & TOAST */
+function initNewsletterForm() {
+  const newsletterForm = document.getElementById('newsletter-form');
+  if (!newsletterForm) return;
+
+  newsletterForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const emailInput = document.getElementById('newsletter-email');
+    if (!emailInput || !emailInput.value) {
+      showToast('Please enter a valid email address.', 'error');
+      return;
+    }
+
+    showToast('Thank you for subscribing to Engineering Dispatches!', 'success');
+    newsletterForm.reset();
   });
 }
 

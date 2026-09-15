@@ -163,25 +163,36 @@ function initPasswordStrengthMeter() {
 
   passwordInput.addEventListener('input', () => {
     const val = passwordInput.value;
-    let score = 0;
+    if (!val) {
+      meterBar.style.width = '0%';
+      meterBar.style.backgroundColor = 'transparent';
+      meterText.textContent = 'Strength: Minimum 8 characters';
+      meterText.style.color = '#9ca3af';
+      return;
+    }
 
+    let score = 0;
     if (val.length >= 8) score++;
     if (/[A-Z]/.test(val)) score++;
     if (/[a-z]/.test(val)) score++;
     if (/[0-9]/.test(val)) score++;
-    if (/[@$!%*?&]/.test(val)) score++;
+    if (/[@$!%*?&#^()_+\-=\[\]{};':"\\|,.<>\/?]/.test(val)) score++;
 
     let strength = 'Weak';
-    let width = '20%';
+    let width = '33%';
     let color = '#f43f5e';
 
-    if (score >= 4) {
+    if (val.length < 8) {
+      strength = 'Too Short (Min 8 chars)';
+      width = '20%';
+      color = '#f43f5e';
+    } else if (score >= 4) {
       strength = 'Strong';
       width = '100%';
       color = '#10b981';
     } else if (score >= 3) {
       strength = 'Medium';
-      width = '60%';
+      width = '66%';
       color = '#f59e0b';
     }
 

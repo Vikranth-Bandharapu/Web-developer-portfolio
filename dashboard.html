@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -95,7 +95,7 @@
     <main class="dash-main">
       <!-- Topbar Header -->
       <header class="dash-topbar">
-        <button class="dash-sidebar-toggle btn btn-secondary" aria-label="Toggle Sidebar">
+        <button class="dash-sidebar-toggle btn btn-secondary" onclick="toggleMobileDashSidebar(event)" aria-label="Toggle Sidebar">
           <i class="fa-solid fa-bars"></i>
         </button>
 
@@ -225,7 +225,7 @@
                 <span>Platform ARR Growth ($k)</span>
                 <span class="badge-tag" style="font-size: 0.75rem;">2026 YTD</span>
               </div>
-              <canvas id="chart-revenue" height="110"></canvas>
+              <div class="chart-container"><canvas id="chart-revenue"></canvas></div>
             </div>
 
             <div class="chart-panel">
@@ -233,7 +233,7 @@
                 <span>Sprint Velocity</span>
                 <span class="badge-tag badge-cyan" style="font-size: 0.75rem;">Story Points</span>
               </div>
-              <canvas id="chart-velocity" height="110"></canvas>
+              <div class="chart-container"><canvas id="chart-velocity"></canvas></div>
             </div>
           </div>
 
@@ -380,7 +380,7 @@
 
         <!-- TAB 2: SPRINT TASKS -->
         <div id="tab-tasks" class="dash-tab-pane">
-          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px;">
+          <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; margin-bottom: 24px;">
             <div>
               <h2 style="font-size: 1.5rem; margin-bottom: 4px;">Sprint Task Backlog & Kanban Overview</h2>
               <p style="font-size: 0.9rem; color: #9ca3af;">Track, filter, and manage high-priority engineering work items across active dev pods.</p>
@@ -630,7 +630,7 @@
 
         <!-- TAB 3: EMAIL CENTER -->
         <div id="tab-email" class="dash-tab-pane">
-          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px;">
+          <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; margin-bottom: 20px;">
             <div>
               <h2 style="font-size: 1.5rem; margin-bottom: 4px;">Interactive Email Center & Communications Hub</h2>
               <p style="font-size: 0.9rem; color: #9ca3af;">Manage security notifications, client communications, and build reports in real-time.</p>
@@ -681,7 +681,7 @@
 
         <!-- TAB 4: CLUSTER METRICS -->
         <div id="tab-analytics" class="dash-tab-pane">
-          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px;">
+          <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; margin-bottom: 24px;">
             <div>
               <h2 style="font-size: 1.5rem; margin-bottom: 4px;">Cluster Health & Telemetry Analytics</h2>
               <p style="font-size: 0.9rem; color: #9ca3af;">Real-time Kubernetes pod status, multi-region load monitoring, storage breakdown, and live terminal logs.</p>
@@ -1089,7 +1089,7 @@
           </div>
 
           <!-- Save Action Bar -->
-          <div style="margin-top: 24px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: space-between;">
+          <div style="margin-top: 24px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;">
             <span style="font-size: 0.85rem; color: #9ca3af;">All configuration changes take effect immediately across all cluster nodes.</span>
             <button class="btn btn-primary shimmer-btn" onclick="window.location.href='404.html'"><i class="fa-solid fa-floppy-disk"></i> Save Workspace Settings</button>
           </div>
@@ -1104,4 +1104,6 @@
   <script src="3d-effects.js"></script>
 </body>
 </html>
+
+
 

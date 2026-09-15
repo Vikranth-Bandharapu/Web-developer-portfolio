@@ -124,7 +124,7 @@
             <form id="contact-form">
               <div style="margin-bottom: 16px;">
                 <label style="font-size: 0.9rem; font-weight: 600; display: block; margin-bottom: 6px; color: #fff;">Full Name *</label>
-                <input type="text" id="contact-name" placeholder="Alex Mercer" required style="width: 100%; padding: 12px 16px; background: rgba(255,255,255,0.05); border: 1px solid var(--border-dark); border-radius: 10px; color: #fff; font-size: 0.95rem;">
+                <input type="text" id="contact-name" placeholder="Alex Mercer" oninput="this.value = this.value.replace(/[^a-zA-Z\s\-']/g, '')" required style="width: 100%; padding: 12px 16px; background: rgba(255,255,255,0.05); border: 1px solid var(--border-dark); border-radius: 10px; color: #fff; font-size: 0.95rem;">
               </div>
 
               <div style="margin-bottom: 16px;">
@@ -455,8 +455,9 @@
           <ul class="footer-links">
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About</a></li>
-            <li><a href="blog.html">Blog</a></li>
             <li><a href="services.html">Services</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="blog.html">Blog</a></li>
             <li><a href="contact.html">Contact</a></li>
           </ul>
         </div>

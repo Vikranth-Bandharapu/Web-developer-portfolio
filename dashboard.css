@@ -921,10 +921,21 @@ select.form-control-dash option:checked {
     display: flex !important;
   }
   .dash-sidebar {
-    transform: translateX(-100%);
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    bottom: 0 !important;
+    height: 100vh !important;
+    height: 100dvh !important;
+    width: 280px !important;
+    max-width: 85vw !important;
+    transform: translateX(-100%) !important;
     background: #090d16 !important;
     z-index: 2000 !important;
-    box-shadow: 15px 0 50px rgba(0, 0, 0, 0.95);
+    box-shadow: 15px 0 50px rgba(0, 0, 0, 0.95) !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
   }
   .dash-sidebar.open {
     transform: translateX(0) !important;
@@ -965,7 +976,18 @@ select.form-control-dash option:checked {
   .kanban-preview-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
-@media (max-width: 768px) {
+
+  .chart-container {
+    height: 190px !important;
+    max-height: 200px !important;
+  }
+  .chart-panel {
+    padding: 16px 12px !important;
+    overflow: hidden !important;
+  }
+  .chart-panel canvas {
+    max-height: 190px !important;
+  }
   .dash-content {
     padding: 18px 12px;
   }
@@ -1016,7 +1038,14 @@ select.form-control-dash option:checked {
   .dash-mode-banner-title { font-size: 0.88rem !important; }
 }
 
-@media (max-width: 480px) {
+
+  .chart-container {
+    height: 160px !important;
+    max-height: 175px !important;
+  }
+  .chart-panel canvas {
+    max-height: 160px !important;
+  }
   .dash-topbar { padding: 8px 10px; }
   .micro-service-item { flex-direction: column; align-items: flex-start; gap: 6px; }
   .dash-form-row { grid-template-columns: 1fr; }
@@ -1056,4 +1085,96 @@ select.form-control-dash option:checked {
 }
 .terminal-line:hover {
   background: rgba(255, 255, 255, 0.05) !important;
+}
+
+
+/* Chart Container & Mobile Canvas Responsiveness */
+.chart-container {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  height: 240px;
+  max-height: 260px;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.chart-panel canvas {
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+  box-sizing: border-box;
+}
+
+/* Global Viewport & Horizontal Overflow Lock */
+html, body {
+  max-width: 100vw !important;
+  overflow-x: hidden !important;
+  box-sizing: border-box !important;
+}
+
+.dashboard-wrapper, .dash-main, .dash-content, .hero-wrapper, .container {
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+
+
+/* Bulletproof Mobile Sidebar Drawer Z-Index & Overlay */
+.dash-sidebar-backdrop {
+  position: fixed !important;
+  inset: 0 !important;
+  background: rgba(0, 0, 0, 0.8) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+  z-index: 99998 !important;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease !important;
+}
+
+.dash-sidebar-backdrop.active {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
+@media (max-width: 1024px) {
+  .dash-sidebar {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    bottom: 0 !important;
+    height: 100vh !important;
+    height: 100dvh !important;
+    width: 280px !important;
+    max-width: 85vw !important;
+    background: #090d16 !important;
+    z-index: 99999 !important;
+    box-shadow: 20px 0 60px rgba(0, 0, 0, 0.98) !important;
+    transform: translateX(-100%) !important;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  }
+  .dash-sidebar.open {
+    transform: translateX(0) !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .dash-tab-pane > div:first-child {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 14px !important;
+  }
+  .dash-tab-pane > div:first-child .btn {
+    width: 100% !important;
+    justify-content: center !important;
+    white-space: nowrap !important;
+  }
+  .settings-card .btn,
+  .dash-tab-pane div[style*="border-top"] .btn {
+    width: 100% !important;
+    justify-content: center !important;
+    margin-top: 8px;
+  }
 }

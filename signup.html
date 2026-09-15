@@ -51,7 +51,7 @@
       <form id="signup-form">
         <div style="margin-bottom: 14px;">
           <label style="font-size: 0.85rem; font-weight: 600; display: block; margin-bottom: 4px;">Full Name *</label>
-          <input type="text" id="signup-name" placeholder="Elena Rostova" required style="width: 100%; padding: 10px 14px; background: rgba(255,255,255,0.05); border: 1px solid var(--border-dark); border-radius: 8px; color: #fff; font-size: 0.9rem;">
+          <input type="text" id="signup-name" placeholder="Elena Rostova" oninput="this.value = this.value.replace(/[^a-zA-Z\s\-']/g, '')" required style="width: 100%; padding: 10px 14px; background: rgba(255,255,255,0.05); border: 1px solid var(--border-dark); border-radius: 8px; color: #fff; font-size: 0.9rem;">
           <div id="signup-name-error"></div>
         </div>
 

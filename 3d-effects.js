@@ -98,6 +98,9 @@ function createSectionCanvas(parentEl) {
     canvas.style.top = '0';
     canvas.style.left = '0';
     canvas.style.width = '100%';
+    canvas.style.maxHeight = '100%';
+    canvas.style.maxWidth = '100%';
+    canvas.style.overflow = 'hidden';
     canvas.style.height = '100%';
     canvas.style.zIndex = '1';
     canvas.style.pointerEvents = 'none';
