@@ -55,9 +55,9 @@ function initLoginForm() {
       clearFieldError('login-email-error');
     }
 
-    // Password validation (accept any non-empty input)
-    if (!password) {
-      showFieldError('login-password-error', 'Please enter your password.');
+    // Password validation (8+ chars minimum length check)
+    if (!password || password.length < 8) {
+      showFieldError('login-password-error', 'Password must be at least 8 characters long.');
       hasError = true;
     } else {
       clearFieldError('login-password-error');
@@ -154,10 +154,10 @@ function initSignupForm() {
 }
 
 /* 4. LIVE PASSWORD STRENGTH METER */
-function initPasswordStrengthMeter() {
-  const passwordInput = document.getElementById('signup-password');
-  const meterBar = document.getElementById('password-strength-bar');
-  const meterText = document.getElementById('password-strength-text');
+function attachPasswordStrengthMeter(inputId, barId, textId) {
+  const passwordInput = document.getElementById(inputId);
+  const meterBar = document.getElementById(barId);
+  const meterText = document.getElementById(textId);
 
   if (!passwordInput || !meterBar || !meterText) return;
 
@@ -201,6 +201,11 @@ function initPasswordStrengthMeter() {
     meterText.textContent = `Strength: ${strength}`;
     meterText.style.color = color;
   });
+}
+
+function initPasswordStrengthMeter() {
+  attachPasswordStrengthMeter('signup-password', 'password-strength-bar', 'password-strength-text');
+  attachPasswordStrengthMeter('login-password', 'login-password-strength-bar', 'login-password-strength-text');
 }
 
 /* HELPER VALIDATION UTILITIES */
