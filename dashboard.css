@@ -996,7 +996,7 @@ select.form-control-dash option:checked {
     max-width: 100%;
     box-sizing: border-box;
   }
-  .dash-metrics-grid { grid-template-columns: repeat(2, 1fr); }
+  .dash-metrics-grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
   .dash-charts-grid { grid-template-columns: 1fr; }
   .dash-bento-grid, .dash-split-grid { grid-template-columns: 1fr; gap: 16px; }
   .email-center-layout { grid-template-columns: 1fr; height: auto; }
@@ -1004,7 +1004,8 @@ select.form-control-dash option:checked {
   .kanban-preview-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
-
+@media (max-width: 768px) {
+  .dash-metrics-grid { grid-template-columns: 1fr !important; gap: 16px !important; }
   .chart-container {
     height: 190px !important;
     max-height: 200px !important;
@@ -1055,7 +1056,7 @@ select.form-control-dash option:checked {
 }
 
 @media (max-width: 640px) {
-  .dash-metrics-grid { grid-template-columns: 1fr; }
+  .dash-metrics-grid { grid-template-columns: 1fr !important; }
   .dash-content { padding: 14px 10px; }
   .chart-panel { padding: 16px 12px; }
   .dash-metric-card { padding: 16px 12px; }
@@ -1066,7 +1067,7 @@ select.form-control-dash option:checked {
   .dash-mode-banner-title { font-size: 0.88rem !important; }
 }
 
-
+@media (max-width: 480px) {
   .chart-container {
     height: 160px !important;
     max-height: 175px !important;
@@ -1167,6 +1168,21 @@ html, body {
   pointer-events: auto !important;
 }
 
+
+@media (max-width: 900px) {
+  .dash-metrics-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+  .node-card {
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  .node-card > div:first-child {
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+  }
+}
 
 @media (max-width: 768px) {
   .dash-tab-pane > div:first-child {
