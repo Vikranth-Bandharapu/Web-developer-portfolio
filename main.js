@@ -130,7 +130,7 @@ function initCategoryFilters() {
         const cardCategory = card.getAttribute('data-category');
 
         if (filterCategory === 'all' || cardCategory === filterCategory) {
-          card.style.display = 'block';
+          card.style.display = '';
           card.style.animation = 'fadeIn 0.4s ease forwards';
         } else {
           card.style.display = 'none';

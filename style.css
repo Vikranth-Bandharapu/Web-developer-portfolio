@@ -527,6 +527,14 @@ h1, h2, h3, h4, h5, h6 {
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+.bento-card img,
+.filterable-card img,
+.image-card-wrapper img {
+  max-width: 100%;
+  object-fit: cover;
+  display: block;
+}
+
 .bento-card::before {
   content: '';
   position: absolute;
@@ -1104,12 +1112,14 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   .image-card-wrapper {
-    height: auto !important;
-    max-height: 280px;
+    width: 100% !important;
+    min-height: 200px !important;
   }
 
   .image-card-wrapper img {
+    width: 100% !important;
     height: 100% !important;
+    min-height: 200px !important;
     object-fit: cover !important;
   }
 
