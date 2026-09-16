@@ -698,41 +698,49 @@ function toggleMobileDashSidebar(e) {
     e.preventDefault();
   }
   const sidebar = document.querySelector('.dash-sidebar');
-  const main = document.querySelector('.dash-main');
+  if (!sidebar) return;
+
+  // Move sidebar to document.body root so parent overflow/stacking context never clips it
+  if (sidebar.parentNode !== document.body) {
+    document.body.appendChild(sidebar);
+  }
+
   let backdrop = document.querySelector('.dash-sidebar-backdrop');
-  
   if (!backdrop) {
     backdrop = document.createElement('div');
     backdrop.className = 'dash-sidebar-backdrop';
-    document.body.appendChild(backdrop);
+    document.body.insertBefore(backdrop, sidebar);
+  } else if (backdrop.parentNode !== document.body) {
+    document.body.insertBefore(backdrop, sidebar);
   }
-  backdrop.onclick = () => {
-    if (sidebar) sidebar.classList.remove('open');
+
+  const closeDrawer = () => {
+    sidebar.classList.remove('open');
+    sidebar.classList.remove('collapsed');
     backdrop.classList.remove('active');
     document.body.style.overflow = '';
   };
 
-  if (sidebar) {
-    if (window.innerWidth > 1024) {
-      if (sidebar.classList.contains('collapsed')) {
-        sidebar.classList.remove('collapsed');
-        if (main) main.classList.remove('sidebar-collapsed');
-      } else {
-        sidebar.classList.add('collapsed');
-        if (main) main.classList.add('sidebar-collapsed');
+  backdrop.onclick = closeDrawer;
+
+  const closeBtn = sidebar.querySelector('.dash-sidebar-close');
+  if (closeBtn) closeBtn.onclick = closeDrawer;
+
+  // Close sidebar when clicking any navigation link on mobile
+  sidebar.querySelectorAll('.dash-nav-link').forEach(link => {
+    link.onclick = () => {
+      if (window.innerWidth <= 1024) {
+        closeDrawer();
       }
-    } else {
-      const isOpen = sidebar.classList.contains('open');
-      if (isOpen) {
-        sidebar.classList.remove('open');
-        backdrop.classList.remove('active');
-        document.body.style.overflow = '';
-      } else {
-        sidebar.classList.add('open');
-        backdrop.classList.add('active');
-        document.body.style.overflow = 'hidden';
-      }
-    }
+    };
+  });
+
+  if (sidebar.classList.contains('open')) {
+    closeDrawer();
+  } else {
+    sidebar.classList.add('open');
+    backdrop.classList.add('active');
+    document.body.style.overflow = 'hidden';
   }
 }
 window.toggleMobileDashSidebar = toggleMobileDashSidebar;

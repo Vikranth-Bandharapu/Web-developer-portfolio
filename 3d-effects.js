@@ -15,11 +15,13 @@ function setupSectionZIndex() {
     if (window.getComputedStyle(sec).position === 'static') {
       sec.style.position = 'relative';
     }
-    sec.style.overflow = 'hidden';
+    if (!sec.classList.contains('dashboard-wrapper')) {
+      sec.style.overflow = 'hidden';
+    }
     
     // Direct children get z-index 10 so section content is 100% visible
     Array.from(sec.children).forEach(child => {
-      if (!child.classList.contains('section-3d-canvas')) {
+      if (!child.classList.contains('section-3d-canvas') && !child.classList.contains('dash-sidebar') && !child.classList.contains('dash-sidebar-backdrop')) {
         if (window.getComputedStyle(child).position === 'static') {
           child.style.position = 'relative';
         }

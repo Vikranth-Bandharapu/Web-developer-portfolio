@@ -1,4 +1,4 @@
-﻿/* ==========================================================================
+/* ==========================================================================
    STACKLY SENIOR DESIGN SYSTEM — ADVANCED VISUAL CARDS & TOKENS
    ========================================================================== */
 
@@ -99,10 +99,15 @@ body {
   pointer-events: none !important;
 }
 
-main, section, footer, .dashboard-wrapper {
+main, section, footer {
   position: relative;
   overflow: hidden;
   z-index: 5;
+}
+
+.dashboard-wrapper {
+  position: relative;
+  overflow: visible !important;
 }
 
 .container, .section-header, .bento-card, .service-card, .feature-card {
