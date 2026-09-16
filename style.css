@@ -942,6 +942,8 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   /* Inline Grid Overrides for Tablets */
+  div[style*="repeat(5, 1fr)"],
+  div[style*="repeat(5,1fr)"],
   div[style*="repeat(4, 1fr)"],
   div[style*="repeat(4,1fr)"],
   div[style*="repeat(3, 1fr)"],
@@ -1077,6 +1079,8 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   /* Inline Grid Overrides for Mobile Phones */
+  div[style*="repeat(5, 1fr)"],
+  div[style*="repeat(5,1fr)"],
   div[style*="repeat(4, 1fr)"],
   div[style*="repeat(4,1fr)"],
   div[style*="repeat(3, 1fr)"],
